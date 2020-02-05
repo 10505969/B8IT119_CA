@@ -17,6 +17,12 @@ namespace B8IT119_CA
             InitializeComponent();
         }
 
-      
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormLogin h = new FormLogin();
+            h.ShowDialog();
+            this.Close();
+        }
     }
 }
