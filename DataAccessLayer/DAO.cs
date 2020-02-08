@@ -10,9 +10,9 @@ using System.Data;
 
 namespace DataAccessLayer
 {
-    class DAO
+    public class DAO
     {
-        public SqlConnection conn;
+        private SqlConnection conn;
         public DAO()
         {
             conn = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=University;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");

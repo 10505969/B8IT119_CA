@@ -92,7 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
-      <Project>{9c71a0ed-fbc9-4249-82a9-6ffca3bc9387}</Project>
+      <Project>{cb2a1a41-9c0d-4616-a299-4b3f0bd86b5d}</Project>
       <Name>BusinessLayer</Name>
     </ProjectReference>
   </ItemGroup>
