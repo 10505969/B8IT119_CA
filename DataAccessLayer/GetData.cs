@@ -4,20 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data.Sql;
+using System.Data;
+
 
 
 namespace DataAccessLayer
 {
-    class GetData : DAO
+    public class GetData : DAO
     {
-        public string getPassword(string username, string password)
+        public DataTable getPassword(string username, string password)
         {
-            SqlCommand cmd = new SqlCommand("SELECT pword FROM USERS WHERE UserName=@USER)", openConnection());
+            SqlCommand cmd = new SqlCommand("SELECT UserName, pword FROM USERS WHERE UserName=@USER AND pword=@PASS", openConnection());
             cmd.Parameters.AddWithValue("@USER", username);
-            cmd.ExecuteNonQuery();
+            cmd.Parameters.AddWithValue("@PASS", password);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
             closeConnection();
-
-            return cmd.ToString();
+            return dt;
         }
+
+
     }
 }

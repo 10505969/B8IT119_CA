@@ -25,5 +25,10 @@ namespace B8IT119_CA
             h.ShowDialog();
             this.Close();
         }
+
+        private void dgStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

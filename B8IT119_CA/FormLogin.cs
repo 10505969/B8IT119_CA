@@ -16,23 +16,11 @@ namespace B8IT119_CA
     public partial class FormLogin : Form
     {
 
-        SqlConnection con = new SqlConnection();
-      
+        LoginHandler lh = new LoginHandler();
+
         public FormLogin()
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=University;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             InitializeComponent();
-        }
-
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
-              
-            SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=University;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            con.Open();
-
-            {
-            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -42,8 +30,20 @@ namespace B8IT119_CA
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
-            
+            if (lh.login(txtUser.Text, txtPassword.Text) == true)
+            {
+                {
+                    this.Hide();
+                    Homepage h = new Homepage();
+                    h.ShowDialog();
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Login Failure");
+            }
+
             //SqlConnection con = new SqlConnection();
             //con.ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=University;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             //con.Open();

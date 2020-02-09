@@ -11,8 +11,16 @@ namespace BusinessLayer
 {
     public class LoginHandler
     {
-        public DAO conn = new DAO();
+        GetData data = new GetData();
 
-      
+        public bool login (string user, string pass){
+            if (data.getPassword(user, pass).Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
     }
 }

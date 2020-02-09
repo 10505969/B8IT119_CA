@@ -110,6 +110,7 @@
             this.dgStudents.Name = "dgStudents";
             this.dgStudents.Size = new System.Drawing.Size(240, 150);
             this.dgStudents.TabIndex = 9;
+            this.dgStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgStudents_CellContentClick);
             // 
             // Homepage
             // 
