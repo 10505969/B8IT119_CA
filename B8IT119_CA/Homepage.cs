@@ -13,9 +13,12 @@ namespace B8IT119_CA
 {
     public partial class Homepage : Form
     {
+        StudentTable st = new StudentTable();
+
         public Homepage()
         {
             InitializeComponent();
+            dgStudents.DataSource = st.Stus();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -26,9 +29,6 @@ namespace B8IT119_CA
             this.Close();
         }
 
-        private void dgStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
     }
 }
