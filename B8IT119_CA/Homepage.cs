@@ -29,6 +29,9 @@ namespace B8IT119_CA
             this.Close();
         }
 
-        
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

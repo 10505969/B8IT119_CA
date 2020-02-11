@@ -21,6 +21,11 @@ namespace B8IT119_CA
         public FormLogin()
         {
             InitializeComponent();
+            foreach (Control control in this.Controls)
+            {
+                control.Hide();
+            }
+            menuStrip1.Show();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -65,6 +70,14 @@ namespace B8IT119_CA
             //    MessageBox.Show("Invalid Login please check username and password");
             //}
             //con.Close();            
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Control control in this.Controls)
+            {
+                control.Show();
+            }
         }
     }
 }
