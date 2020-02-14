@@ -25,12 +25,8 @@ namespace B8IT119_CA
             {
                 control.Hide();
             }
-            menuStrip1.Show();
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            mainMenu.Show();
+            
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -72,12 +68,17 @@ namespace B8IT119_CA
             //con.Close();            
         }
 
-        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        private void loginMainMenu_Click(object sender, EventArgs e)
         {
             foreach (Control control in this.Controls)
             {
                 control.Show();
             }
+        }
+
+        private void exitMainMenu_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
