@@ -9,8 +9,11 @@ using System.Data;
 
 namespace BusinessLayer
 {
-    class Student
+    public class Student
     {
+
+        AddData data = new AddData();
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -39,14 +42,17 @@ namespace BusinessLayer
             County = county;
             Level = level;
             StudentNo = studentno;
+
         }
 
-        public static void addStudent(Student s)
+        public void AddtoDB()
         {
-            AddData data = new AddData();
+            data.AddStu(FirstName, LastName, Email, Phone, Address1, Address2, City, County.ToString(), Level.ToString(), StudentNo);
+        }
 
-            data.AddStu(s.FirstName, s.LastName,s.Email, s.Phone, s.Address1, s.Address2, s.City, s.County.ToString(), s.Level.ToString(), s.StudentNo);
-        
+        public static void AddStudent(Student s)
+        {
+            s.AddtoDB();
         }
 
 

@@ -25,8 +25,17 @@ namespace B8IT119_CA
             }
             mainMenu.Show();
             dgStudents.Show();
-        }
+            foreach (var c in Enum.GetValues(typeof(CountiesEnum)))
+            {
+                cmbCounty.Items.Add(c);
+            }
 
+            foreach (var c in Enum.GetValues(typeof(CourseEnum)))
+            {
+                cmbCourse.Items.Add(c);
+            }
+
+        }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -61,7 +70,33 @@ namespace B8IT119_CA
 
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
-           
+            Student s = new Student();
+            s.FirstName = txtFirstName.Text;
+            s.LastName = txtFirstName.Text;
+            s.Email = txtEmail.Text;
+            s.Phone = txtPhone.Text;
+            s.Address1 = txtAddress1.Text;
+            s.Address2 = txtAddress2.Text;
+            s.City = txtCity.Text;
+            Enum.TryParse(cmbCounty.SelectedText, out CountiesEnum county);
+            s.County = county;
+            if (rbUndergrad.Checked)
+            {
+                s.Level = LevelEnum.Undergrad;
+            } 
+            else if (rbPostgrad.Checked)
+            {
+                s.Level = LevelEnum.Postgrad;
+            }
+            Enum.TryParse(cmbCourse.SelectedText, out CourseEnum course);
+            s.StudentNo = int.Parse(txtStudentNo.Text);
+
+            Student.AddStudent(s);
+
+            MessageBox.Show("Student Added");
+            dgStudents.Refresh();
         }
+
+        
     }
 }

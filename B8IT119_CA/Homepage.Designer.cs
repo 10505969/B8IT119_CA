@@ -289,11 +289,13 @@
             // 
             // cmbCounty
             // 
+            this.cmbCounty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCounty.FormattingEnabled = true;
             this.cmbCounty.Location = new System.Drawing.Point(213, 401);
             this.cmbCounty.Name = "cmbCounty";
             this.cmbCounty.Size = new System.Drawing.Size(121, 21);
             this.cmbCounty.TabIndex = 27;
+            
             // 
             // lblLevel
             // 
@@ -328,6 +330,7 @@
             // 
             // cmbCourse
             // 
+            this.cmbCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCourse.FormattingEnabled = true;
             this.cmbCourse.Location = new System.Drawing.Point(213, 478);
             this.cmbCourse.Name = "cmbCourse";
