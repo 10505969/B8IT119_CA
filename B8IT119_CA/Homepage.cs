@@ -19,14 +19,21 @@ namespace B8IT119_CA
         {
             InitializeComponent();
             dgStudents.DataSource = st.Stus();
+            foreach (Control control in this.Controls)
+            {
+                control.Hide();
+            }
+            mainMenu.Show();
+            dgStudents.Show();
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             FormLogin h = new FormLogin();
             h.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -34,11 +41,27 @@ namespace B8IT119_CA
             Close();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void newStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            foreach (Control control in this.Controls)
+            {
+                control.Show();
+            }
         }
 
-        
+        private void editStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtFirstName.ReadOnly = true;
+
+            foreach (Control control in this.Controls)
+            {
+                control.Show();
+            }
+        }
+
+        private void btnAddStudent_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
