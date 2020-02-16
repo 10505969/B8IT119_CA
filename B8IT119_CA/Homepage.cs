@@ -25,15 +25,12 @@ namespace B8IT119_CA
             }
             mainMenu.Show();
             dgStudents.Show();
-            foreach (var c in Enum.GetValues(typeof(CountiesEnum)))
-            {
-                cmbCounty.Items.Add(c);
-            }
 
-            foreach (var c in Enum.GetValues(typeof(CourseEnum)))
-            {
-                cmbCourse.Items.Add(c);
-            }
+            cmbCounty.DataSource = Enum.GetValues(typeof(CountiesEnum));
+            cmbCounty.SelectedIndex = -1;
+
+            cmbCourse.DataSource = Enum.GetValues(typeof(CourseEnum));
+            cmbCourse.SelectedIndex = -1;            
 
         }
 
@@ -60,11 +57,18 @@ namespace B8IT119_CA
 
         private void editStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
+       
             txtFirstName.ReadOnly = true;
-
+            txtSurname.ReadOnly = true;
+            txtStudentNo.ReadOnly = true;
+            cmbCourse.Enabled = false;
+          
             foreach (Control control in this.Controls)
             {
-                control.Show();
+                if (control != btnAddStudent)
+                {
+                    control.Show();
+                }
             }
         }
 
@@ -72,13 +76,13 @@ namespace B8IT119_CA
         {
             Student s = new Student();
             s.FirstName = txtFirstName.Text;
-            s.LastName = txtFirstName.Text;
+            s.LastName = txtSurname.Text;
             s.Email = txtEmail.Text;
             s.Phone = txtPhone.Text;
             s.Address1 = txtAddress1.Text;
             s.Address2 = txtAddress2.Text;
             s.City = txtCity.Text;
-            Enum.TryParse(cmbCounty.SelectedText, out CountiesEnum county);
+            Enum.TryParse<CountiesEnum>(cmbCounty.SelectedValue.ToString(), out CountiesEnum county);
             s.County = county;
             if (rbUndergrad.Checked)
             {
@@ -88,15 +92,55 @@ namespace B8IT119_CA
             {
                 s.Level = LevelEnum.Postgrad;
             }
-            Enum.TryParse(cmbCourse.SelectedText, out CourseEnum course);
+            Enum.TryParse<CourseEnum>(cmbCourse.SelectedValue.ToString(), out CourseEnum course);
+            s.Course = course;
             s.StudentNo = int.Parse(txtStudentNo.Text);
 
             Student.AddStudent(s);
+            dgStudents.DataSource = st.Stus();
 
             MessageBox.Show("Student Added");
-            dgStudents.Refresh();
+            txtFirstName.Clear();
+            txtSurname.Clear();
+            txtEmail.Clear();
+            txtPhone.Clear();
+            txtAddress1.Clear();
+            txtAddress2.Clear();
+            txtCity.Clear();
+            cmbCounty.SelectedIndex = -1;
+            rbUndergrad.Checked = false;
+            rbPostgrad.Checked = false;
+            cmbCourse.SelectedIndex = -1;
+            txtStudentNo.Clear();
         }
 
-        
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            int studentnumber = int.Parse(txtSearchStudentNo.Text);
+            Student s = new Student();
+            s = s.GetStuById(studentnumber);
+
+            txtFirstName.Text = s.FirstName;
+            txtSurname.Text = s.LastName;
+            txtEmail.Text = s.Email;
+            txtPhone.Text = s.Phone;
+            txtAddress1.Text = s.Address1;
+            txtAddress2.Text = s.Address2;
+            txtCity.Text = s.City;
+            cmbCounty.SelectedItem = s.County;
+         
+            if(s.Level == LevelEnum.Postgrad)
+            {
+                rbPostgrad.Checked = true;
+            }
+            else if (s.Level == LevelEnum.Undergrad)
+            {
+                rbUndergrad.Checked = true;
+            }
+
+            cmbCourse.SelectedItem = s.Course;
+            txtStudentNo.Text = s.StudentNo.ToString();
+
+        }
     }
 }

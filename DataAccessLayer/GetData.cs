@@ -41,5 +41,16 @@ namespace DataAccessLayer
         }
 
 
+        public DataTable GetStudentByStuNo(int studentno)
+        {
+            SqlCommand cmd = new SqlCommand("Select * From Students WHERE StudentNo=@STUDENTNO", openConnection());
+            cmd.Parameters.AddWithValue("@STUDENTNO", studentno);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            closeConnection();
+            return dt;
+        }
+
     }
 }

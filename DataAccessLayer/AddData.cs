@@ -12,10 +12,7 @@ namespace DataAccessLayer
     public class AddData:DAO
     {
 
-
-
-
-        public void AddStu(string fname, string lname, string email, string phone, string address1, string address2, string city, string county, string level, int studentno)
+        public void AddStu(string fname, string lname, string email, string phone, string address1, string address2, string city, string county, string level, string course, int studentno)
 
 
 
@@ -23,9 +20,9 @@ namespace DataAccessLayer
         {
 
             SqlCommand cmd = new SqlCommand("INSERT INTO Students (FirstName,LastName,Email,Phone," +
-                " AddressLine1,AddressLine2,City,County,Level,StudentNo) VALUES (@FirstName, " +
+                " AddressLine1,AddressLine2,City,County,Level,Course,StudentNo) VALUES (@FirstName, " +
                 "@LastName, @Email, @Phone, @AddressLine1, @AddressLine2, @City, @County, " +
-                "@Level, @StudentNo)", openConnection());
+                "@Level, @Course, @StudentNo)", openConnection());
             cmd.Parameters.AddWithValue("@FirstName", fname);
             cmd.Parameters.AddWithValue("@LastName", lname);
             cmd.Parameters.AddWithValue("@Email", email);
@@ -35,6 +32,7 @@ namespace DataAccessLayer
             cmd.Parameters.AddWithValue("@City", city);
             cmd.Parameters.AddWithValue("@County", county);
             cmd.Parameters.AddWithValue("@Level", level);
+            cmd.Parameters.AddWithValue("@Course", course);
             cmd.Parameters.AddWithValue("@StudentNo", studentno);
 
             cmd.ExecuteNonQuery();

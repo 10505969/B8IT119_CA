@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.dgStudents = new System.Windows.Forms.DataGridView();
-            this.FirstName = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +62,8 @@
             this.lblStudentNo = new System.Windows.Forms.Label();
             this.txtStudentNo = new System.Windows.Forms.TextBox();
             this.btnAddStudent = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearchStudentNo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgStudents)).BeginInit();
             this.mainMenu.SuspendLayout();
             this.SuspendLayout();
@@ -72,29 +71,10 @@
             // dgStudents
             // 
             this.dgStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FirstName,
-            this.Column1,
-            this.Column2});
             this.dgStudents.Location = new System.Drawing.Point(12, 36);
             this.dgStudents.Name = "dgStudents";
             this.dgStudents.Size = new System.Drawing.Size(324, 150);
             this.dgStudents.TabIndex = 9;
-            // 
-            // FirstName
-            // 
-            this.FirstName.HeaderText = "Column1";
-            this.FirstName.Name = "FirstName";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Column2";
-            this.Column2.Name = "Column2";
             // 
             // mainMenu
             // 
@@ -295,7 +275,6 @@
             this.cmbCounty.Name = "cmbCounty";
             this.cmbCounty.Size = new System.Drawing.Size(121, 21);
             this.cmbCounty.TabIndex = 27;
-            
             // 
             // lblLevel
             // 
@@ -372,11 +351,30 @@
             this.btnAddStudent.UseVisualStyleBackColor = true;
             this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(529, 265);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 36;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtSearchStudentNo
+            // 
+            this.txtSearchStudentNo.Location = new System.Drawing.Point(418, 265);
+            this.txtSearchStudentNo.Name = "txtSearchStudentNo";
+            this.txtSearchStudentNo.Size = new System.Drawing.Size(100, 20);
+            this.txtSearchStudentNo.TabIndex = 37;
+            // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(633, 537);
+            this.Controls.Add(this.txtSearchStudentNo);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnAddStudent);
             this.Controls.Add(this.txtStudentNo);
             this.Controls.Add(this.lblStudentNo);
@@ -425,9 +423,6 @@
         private System.Windows.Forms.ToolStripMenuItem deleteStudentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewDatabaseHistoryToolStripMenuItem;
         private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.DataGridViewButtonColumn FirstName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Column2;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.Label lblSurname;
         private System.Windows.Forms.TextBox txtSurname;
@@ -451,5 +446,7 @@
         private System.Windows.Forms.Label lblStudentNo;
         private System.Windows.Forms.TextBox txtStudentNo;
         private System.Windows.Forms.Button btnAddStudent;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtSearchStudentNo;
     }
 }
