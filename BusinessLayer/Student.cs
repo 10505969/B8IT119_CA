@@ -14,6 +14,7 @@ namespace BusinessLayer
 
         AddData data = new AddData();
         GetData gdata = new GetData();
+        EditData edata = new EditData();
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -58,15 +59,18 @@ namespace BusinessLayer
             s.AddtoDB();
         }
 
+        public void EditStudent()
+        {
+
+            edata.EditStu(Email, Phone, Address1, Address2, City, County.ToString(), Level.ToString(), StudentNo);
+        }
+
         public Student GetStuById(int studentno)
         {
             Student s = new Student();
             DataTable vals;
             vals = gdata.GetStudentByStuNo(studentno);
-            //foreach(DataRow row in vals.Rows)
-            //{
-
-            //}
+            
             s.FirstName = vals.Rows[0]["FirstName"].ToString();
             s.LastName = vals.Rows[0]["LastName"].ToString();
             s.Email = vals.Rows[0]["Email"].ToString();
@@ -81,11 +85,9 @@ namespace BusinessLayer
             Enum.TryParse<CourseEnum>(vals.Rows[0]["Course"].ToString(), out CourseEnum course);
             s.Course = course;
             s.StudentNo = studentno;
-
-
             return s;
-
         }
+
 
     }
 

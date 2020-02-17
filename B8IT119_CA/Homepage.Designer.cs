@@ -64,6 +64,7 @@
             this.btnAddStudent = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearchStudentNo = new System.Windows.Forms.TextBox();
+            this.btnEditStudent = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgStudents)).BeginInit();
             this.mainMenu.SuspendLayout();
             this.SuspendLayout();
@@ -368,11 +369,22 @@
             this.txtSearchStudentNo.Size = new System.Drawing.Size(100, 20);
             this.txtSearchStudentNo.TabIndex = 37;
             // 
+            // btnEditStudent
+            // 
+            this.btnEditStudent.Location = new System.Drawing.Point(418, 319);
+            this.btnEditStudent.Name = "btnEditStudent";
+            this.btnEditStudent.Size = new System.Drawing.Size(75, 23);
+            this.btnEditStudent.TabIndex = 38;
+            this.btnEditStudent.Text = "Edit Student";
+            this.btnEditStudent.UseVisualStyleBackColor = true;
+            this.btnEditStudent.Click += new System.EventHandler(this.btnEditStudent_Click);
+            // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(633, 537);
+            this.Controls.Add(this.btnEditStudent);
             this.Controls.Add(this.txtSearchStudentNo);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnAddStudent);
@@ -448,5 +460,6 @@
         private System.Windows.Forms.Button btnAddStudent;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearchStudentNo;
+        private System.Windows.Forms.Button btnEditStudent;
     }
 }

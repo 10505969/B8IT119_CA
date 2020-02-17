@@ -14,6 +14,7 @@ namespace B8IT119_CA
     public partial class Homepage : Form
     {
         StudentTable st = new StudentTable();
+        Students studentlist = new Students();
 
         public Homepage()
         {
@@ -49,6 +50,23 @@ namespace B8IT119_CA
 
         private void newStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            txtFirstName.Clear();
+            txtSurname.Clear();
+            txtEmail.Clear();
+            txtPhone.Clear();
+            txtAddress1.Clear();
+            txtAddress2.Clear();
+            txtCity.Clear();
+            cmbCounty.SelectedIndex = -1;
+            rbUndergrad.Checked = false;
+            rbPostgrad.Checked = false;
+            cmbCourse.SelectedIndex = -1;
+            txtStudentNo.Clear();
+            txtFirstName.ReadOnly = false;
+            txtSurname.ReadOnly = false;
+            txtStudentNo.ReadOnly = false;
+            cmbCourse.Enabled = true;
+
             foreach (Control control in this.Controls)
             {
                 control.Show();
@@ -57,7 +75,19 @@ namespace B8IT119_CA
 
         private void editStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-       
+            txtFirstName.Clear();
+            txtSurname.Clear();
+            txtEmail.Clear();
+            txtPhone.Clear();
+            txtAddress1.Clear();
+            txtAddress2.Clear();
+            txtCity.Clear();
+            cmbCounty.SelectedIndex = -1;
+            rbUndergrad.Checked = false;
+            rbPostgrad.Checked = false;
+            cmbCourse.SelectedIndex = -1;
+            txtStudentNo.Clear();
+
             txtFirstName.ReadOnly = true;
             txtSurname.ReadOnly = true;
             txtStudentNo.ReadOnly = true;
@@ -69,11 +99,16 @@ namespace B8IT119_CA
                 {
                     control.Show();
                 }
+                else
+                {
+                    control.Hide();
+                }
             }
         }
 
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
+            
             Student s = new Student();
             s.FirstName = txtFirstName.Text;
             s.LastName = txtSurname.Text;
@@ -116,6 +151,7 @@ namespace B8IT119_CA
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            studentlist.Clear();
             int studentnumber = int.Parse(txtSearchStudentNo.Text);
             Student s = new Student();
             s = s.GetStuById(studentnumber);
@@ -140,7 +176,37 @@ namespace B8IT119_CA
 
             cmbCourse.SelectedItem = s.Course;
             txtStudentNo.Text = s.StudentNo.ToString();
-
+            studentlist.Add(s);
+           
         }
+
+        private void btnEditStudent_Click(object sender, EventArgs e)
+        {
+            foreach (Student s in studentlist)
+            {
+                txtEmail.Text = s.Email;
+                txtPhone.Text = s.Phone;
+                txtAddress1.Text = s.Address1;
+                txtAddress2.Text = s.Address2;
+                txtCity.Text = s.City;
+                cmbCounty.SelectedItem = s.County;
+
+                if (s.Level == LevelEnum.Postgrad)
+                {
+                    rbPostgrad.Checked = true;
+                }
+                else if (s.Level == LevelEnum.Undergrad)
+                {
+                    rbUndergrad.Checked = true;
+                }
+                s.EditStudent();
+            }
+
+            dgStudents.DataSource = st.Stus();
+            //foreach (Student s in studentlist){
+            //    MessageBox.Show(s.FirstName);
+        }
+
     }
 }
+
