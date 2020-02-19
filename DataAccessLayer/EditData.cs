@@ -27,5 +27,14 @@ namespace DataAccessLayer
 
             closeConnection();
         }
+
+        public void DeleteStu(int studentno)
+        {
+            SqlCommand cmd = new SqlCommand("UPDATE Students SET IsDeleted = 1 WHERE StudentNo = @StudentNo", openConnection());
+            cmd.Parameters.AddWithValue("@StudentNo", studentno);
+            cmd.ExecuteNonQuery();
+
+            closeConnection();
+        }
     }
 }

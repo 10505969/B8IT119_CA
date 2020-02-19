@@ -237,11 +237,25 @@ namespace B8IT119_CA
             }
 
             dgStudents.DataSource = st.Stus();
-
+            studentlist.Clear();
         }
 
         private void deleteStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            txtFirstName.Clear();
+            txtSurname.Clear();
+            txtEmail.Clear();
+            txtPhone.Clear();
+            txtAddress1.Clear();
+            txtAddress2.Clear();
+            txtCity.Clear();
+            cmbCounty.SelectedIndex = -1;
+            rbUndergrad.Checked = false;
+            rbPostgrad.Checked = false;
+            cmbCourse.SelectedIndex = -1;
+            txtStudentNo.Clear();
+
             foreach (Control control in this.Controls)
             {
                 if (control == btnAddStudent)
@@ -258,6 +272,16 @@ namespace B8IT119_CA
                     control.Show();
                 }
             }
+        }
+
+        private void btnDeleteStu_Click(object sender, EventArgs e)
+        {
+            foreach (Student s in studentlist)
+            {
+                s.DeleteStudent();
+            }
+
+            studentlist.Clear();
         }
     }
 }

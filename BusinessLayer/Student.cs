@@ -65,6 +65,11 @@ namespace BusinessLayer
             edata.EditStu(Email, Phone, Address1, Address2, City, County.ToString(), Level.ToString(), StudentNo);
         }
 
+        public void DeleteStudent()
+        {
+            edata.DeleteStu(StudentNo);
+        }
+
         public Student GetStuById(int studentno)
         {
             Student s = new Student();

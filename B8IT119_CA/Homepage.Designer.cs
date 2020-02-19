@@ -340,6 +340,7 @@
             // txtStudentNo
             // 
             this.txtStudentNo.Location = new System.Drawing.Point(213, 505);
+            this.txtStudentNo.MaxLength = 8;
             this.txtStudentNo.Name = "txtStudentNo";
             this.txtStudentNo.Size = new System.Drawing.Size(100, 20);
             this.txtStudentNo.TabIndex = 34;
@@ -389,6 +390,7 @@
             this.btnDeleteStu.TabIndex = 39;
             this.btnDeleteStu.Text = "Delete Student";
             this.btnDeleteStu.UseVisualStyleBackColor = true;
+            this.btnDeleteStu.Click += new System.EventHandler(this.btnDeleteStu_Click);
             // 
             // Homepage
             // 
