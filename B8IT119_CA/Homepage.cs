@@ -50,6 +50,10 @@ namespace B8IT119_CA
 
         private void newStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            btnSearch.Hide();
+            txtSearchStudentNo.Hide();
+            btnEditStudent.Hide();
+
             txtFirstName.Clear();
             txtSurname.Clear();
             txtEmail.Clear();
@@ -69,12 +73,32 @@ namespace B8IT119_CA
 
             foreach (Control control in this.Controls)
             {
-                control.Show();
+                if (control == btnSearch )
+                {
+                    control.Hide();
+                }
+                else if ( control == txtSearchStudentNo)
+                {
+                    control.Hide();
+                }
+                else if (control == btnEditStudent)
+                {
+                    control.Hide();
+                }
+                else if (control == btnDeleteStu)
+                {
+                    control.Hide();
+                }
+                else
+                {
+                    control.Show();
+                }
             }
         }
 
         private void editStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            btnAddStudent.Hide();
             txtFirstName.Clear();
             txtSurname.Clear();
             txtEmail.Clear();
@@ -95,13 +119,17 @@ namespace B8IT119_CA
           
             foreach (Control control in this.Controls)
             {
-                if (control != btnAddStudent)
+                if (control == btnAddStudent)
                 {
-                    control.Show();
+                    control.Hide();
+                }
+                else if (control == btnDeleteStu)
+                {
+                    control.Hide();
                 }
                 else
                 {
-                    control.Hide();
+                    control.Show();
                 }
             }
         }
@@ -131,7 +159,7 @@ namespace B8IT119_CA
             s.Course = course;
             s.StudentNo = int.Parse(txtStudentNo.Text);
 
-            Student.AddStudent(s);
+            s.AddStudent();
             dgStudents.DataSource = st.Stus();
 
             MessageBox.Show("Student Added");
@@ -184,29 +212,53 @@ namespace B8IT119_CA
         {
             foreach (Student s in studentlist)
             {
-                txtEmail.Text = s.Email;
-                txtPhone.Text = s.Phone;
-                txtAddress1.Text = s.Address1;
-                txtAddress2.Text = s.Address2;
-                txtCity.Text = s.City;
-                cmbCounty.SelectedItem = s.County;
 
-                if (s.Level == LevelEnum.Postgrad)
+                s.Email = txtEmail.Text;
+                s.Phone = txtPhone.Text;
+                s.Address1 = txtAddress1.Text;
+                s.Address2 = txtAddress2.Text;
+                s.City = txtCity.Text;
+                Enum.TryParse<CountiesEnum>(cmbCounty.SelectedValue.ToString(), out CountiesEnum county); ;
+                s.County = county;
+
+                if (rbPostgrad.Checked == true)
                 {
-                    rbPostgrad.Checked = true;
+                    s.Level = LevelEnum.Postgrad;                   
                 }
-                else if (s.Level == LevelEnum.Undergrad)
+                else if (rbUndergrad.Checked == true)                   
                 {
-                    rbUndergrad.Checked = true;
+                    s.Level = LevelEnum.Undergrad;
                 }
+
+                Enum.TryParse<CourseEnum>(cmbCourse.SelectedValue.ToString(), out CourseEnum course);
+                s.Course = course;
+                s.StudentNo = int.Parse(txtStudentNo.Text);
                 s.EditStudent();
             }
 
             dgStudents.DataSource = st.Stus();
-            //foreach (Student s in studentlist){
-            //    MessageBox.Show(s.FirstName);
+
         }
 
+        private void deleteStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control == btnAddStudent)
+                {
+                    control.Hide();
+                }
+                
+                else if (control == btnEditStudent)
+                {
+                    control.Hide();
+                }
+                else
+                {
+                    control.Show();
+                }
+            }
+        }
     }
 }
 

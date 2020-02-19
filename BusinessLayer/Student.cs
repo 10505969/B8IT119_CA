@@ -15,6 +15,7 @@ namespace BusinessLayer
         AddData data = new AddData();
         GetData gdata = new GetData();
         EditData edata = new EditData();
+        RemoveData ddata = new RemoveData();
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -49,19 +50,18 @@ namespace BusinessLayer
 
         }
 
-        public void AddtoDB()
+        public void AddStudent()
         {
             data.AddStu(FirstName, LastName, Email, Phone, Address1, Address2, City, County.ToString(), Level.ToString(), Course.ToString(), StudentNo);
         }
 
-        public static void AddStudent(Student s)
+        public void RemoveStudent()
         {
-            s.AddtoDB();
-        }
+            ddata.RemoveStu(StudentNo);
+        } 
 
         public void EditStudent()
         {
-
             edata.EditStu(Email, Phone, Address1, Address2, City, County.ToString(), Level.ToString(), StudentNo);
         }
 
