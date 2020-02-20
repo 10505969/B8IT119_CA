@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgStudents = new System.Windows.Forms.DataGridView();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,8 +67,10 @@
             this.txtSearchStudentNo = new System.Windows.Forms.TextBox();
             this.btnEditStudent = new System.Windows.Forms.Button();
             this.btnDeleteStu = new System.Windows.Forms.Button();
+            this.epValidate = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgStudents)).BeginInit();
             this.mainMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epValidate)).BeginInit();
             this.SuspendLayout();
             // 
             // dgStudents
@@ -155,6 +158,8 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtFirstName.TabIndex = 11;
+            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtFirstName_Validating);
+            this.txtFirstName.Validated += new System.EventHandler(this.txtFirstName_Validated);
             // 
             // lblFirstName
             // 
@@ -392,6 +397,10 @@
             this.btnDeleteStu.UseVisualStyleBackColor = true;
             this.btnDeleteStu.Click += new System.EventHandler(this.btnDeleteStu_Click);
             // 
+            // epValidate
+            // 
+            this.epValidate.ContainerControl = this;
+            // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,6 +441,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgStudents)).EndInit();
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epValidate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -476,5 +486,6 @@
         private System.Windows.Forms.TextBox txtSearchStudentNo;
         private System.Windows.Forms.Button btnEditStudent;
         private System.Windows.Forms.Button btnDeleteStu;
+        private System.Windows.Forms.ErrorProvider epValidate;
     }
 }

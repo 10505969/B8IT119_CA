@@ -74,24 +74,34 @@ namespace BusinessLayer
         {
             Student s = new Student();
             DataTable vals;
-            vals = gdata.GetStudentByStuNo(studentno);
             
-            s.FirstName = vals.Rows[0]["FirstName"].ToString();
-            s.LastName = vals.Rows[0]["LastName"].ToString();
-            s.Email = vals.Rows[0]["Email"].ToString();
-            s.Phone = vals.Rows[0]["Phone"].ToString();
-            s.Address1 = vals.Rows[0]["AddressLine1"].ToString();
-            s.Address2 = vals.Rows[0]["AddressLine2"].ToString();
-            s.City = vals.Rows[0]["City"].ToString();
-            Enum.TryParse<CountiesEnum>(vals.Rows[0]["County"].ToString(), out CountiesEnum county);
-            s.County = county;
-            Enum.TryParse<LevelEnum>(vals.Rows[0]["Level"].ToString(), out LevelEnum level);
-            s.Level = level;
-            Enum.TryParse<CourseEnum>(vals.Rows[0]["Course"].ToString(), out CourseEnum course);
-            s.Course = course;
-            s.StudentNo = studentno;
-            return s;
+            vals = gdata.GetStudentByStuNo(studentno);
+
+            if (vals.Rows.Count < 1)
+            {
+                return s;
+            }
+            else
+            {
+                s.FirstName = vals.Rows[0]["FirstName"].ToString();
+                s.LastName = vals.Rows[0]["LastName"].ToString();
+                s.Email = vals.Rows[0]["Email"].ToString();
+                s.Phone = vals.Rows[0]["Phone"].ToString();
+                s.Address1 = vals.Rows[0]["AddressLine1"].ToString();
+                s.Address2 = vals.Rows[0]["AddressLine2"].ToString();
+                s.City = vals.Rows[0]["City"].ToString();
+                Enum.TryParse<CountiesEnum>(vals.Rows[0]["County"].ToString(), out CountiesEnum county);
+                s.County = county;
+                Enum.TryParse<LevelEnum>(vals.Rows[0]["Level"].ToString(), out LevelEnum level);
+                s.Level = level;
+                Enum.TryParse<CourseEnum>(vals.Rows[0]["Course"].ToString(), out CourseEnum course);
+                s.Course = course;
+                s.StudentNo = studentno;
+                return s;
+            }
         }
+
+        
 
 
     }
