@@ -13,7 +13,7 @@ namespace BusinessLayer
     {
         GetData data = new GetData();
 
-        public bool login (string user, string pass){
+        public bool Login (string user, string pass){
             if (data.getPassword(user, pass).Rows.Count > 0)
             {
                 return true;

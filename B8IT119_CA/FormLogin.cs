@@ -31,7 +31,7 @@ namespace B8IT119_CA
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (lh.login(txtUser.Text, txtPassword.Text) == true)
+            if (lh.Login(txtUser.Text, txtPassword.Text) == true)
             {
                 {
                     this.Hide();
@@ -43,29 +43,7 @@ namespace B8IT119_CA
             else
             {
                 MessageBox.Show("Login Failure");
-            }
-
-            //SqlConnection con = new SqlConnection();
-            //con.ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=University;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            //con.Open();
-            //string UserName = txtUser.Text;
-            //string pword = txtPassword.Text;
-            //SqlCommand cmd = new SqlCommand("select UserName, pword from Users where UserName='" + txtUser.Text + "'and pword='" + txtPassword.Text + "'", con);
-            //SqlDataAdapter da = new SqlDataAdapter(cmd);
-            //DataTable dt = new DataTable();
-            //da.Fill(dt);
-            //if (dt.Rows.Count > 0)
-            //{
-            //    this.Hide();
-            //    Homepage h = new Homepage();
-            //    h.ShowDialog();
-            //    this.Close();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Invalid Login please check username and password");
-            //}
-            //con.Close();            
+            }           
         }
 
         private void loginMainMenu_Click(object sender, EventArgs e)

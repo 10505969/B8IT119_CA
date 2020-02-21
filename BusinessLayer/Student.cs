@@ -101,10 +101,15 @@ namespace BusinessLayer
             }
         }
 
-        
-
-
+        public bool IdVerifier (int studentno)
+        {
+            if (gdata.GetStudentByStuNo(studentno).Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
     }
 
-    
 }

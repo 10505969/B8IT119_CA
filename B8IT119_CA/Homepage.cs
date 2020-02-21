@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
+using System.Text.RegularExpressions;
+using System.Net.Mail;
+
 
 namespace B8IT119_CA
 {
@@ -15,36 +18,60 @@ namespace B8IT119_CA
     {
         StudentTable st = new StudentTable();
         Students studentlist = new Students();
-        int tab = 0;
+        int tab;
 
-        public bool IdVerifier(string studentno)
-        {
-            int output;
-            Student s = new Student();
-
-            bool valid = int.TryParse(studentno, out output);
-
-            if (valid is false)
+        private bool EmailChecker(string email) {
+            try
             {
-                return valid;
+                MailAddress address = new MailAddress(email);
+                return address.Address == email;
             }
+            catch
+            {
+                return false;
+            }
+        }
 
-            
+        private bool ButtonChecked()
+        {
+            if (rbUndergrad.Checked is true || rbPostgrad.Checked is true)
+            {
+                return true;
+            }
             else
             {
-                s = s.GetStuById(output);
-
-                if (s.StudentNo > 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return false;
             }
-
         }
+
+
+        private bool Validate()
+        {
+
+
+            int studentNoLengthChecker;
+            int studentId = 0;
+
+           
+            studentNoLengthChecker = txtStudentNo.Text.Length;
+
+            //Regex phone = new Regex(@"\+?\d+-?\d+");
+
+            bool valid = txtFirstName.Text.Length > 0;
+            valid &= txtSurname.Text.Length > 0;
+            valid &= EmailChecker(txtEmail.Text);
+            //Match phoneMatch = phone.Match(txtEmail.Text);
+            //valid &= phoneMatch.Success;
+            valid &= txtAddress1.Text.Length > 0;
+            valid &= cmbCounty.SelectedIndex > -1;
+            valid &= ButtonChecked();
+            valid &= cmbCourse.SelectedIndex > -1;
+            valid &= studentNoLengthChecker == 8;
+            valid &= int.TryParse(txtStudentNo.Text, out studentId);
+
+            return valid;
+        }
+
 
         public bool EmailCheck(string email)
         {
@@ -216,17 +243,17 @@ namespace B8IT119_CA
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
 
+            Student s = new Student();
+            if (Validate())
+            {
+                if (s.IdVerifier(int.Parse(txtStudentNo.Text))){
+
+                    MessageBox.Show("StudentId Already Exitst");
+                }
+                else
                 {
-
-
-
-                Student s = new Student();
-                    
-
-
                     s.FirstName = txtFirstName.Text;
-                    
-                    
+
                     s.LastName = txtSurname.Text;
                     s.Email = txtEmail.Text;
                     s.Phone = txtPhone.Text;
@@ -247,44 +274,37 @@ namespace B8IT119_CA
                     s.Course = course;
                     s.StudentNo = int.Parse(txtStudentNo.Text);
 
-                  
 
-                        s.AddStudent();
-                        dgStudents.DataSource = st.Stus();
 
-                        MessageBox.Show("Student Added");
-                        txtFirstName.Clear();
-                        txtSurname.Clear();
-                        txtEmail.Clear();
-                        txtPhone.Clear();
-                        txtAddress1.Clear();
-                        txtAddress2.Clear();
-                        txtCity.Clear();
-                        cmbCounty.SelectedIndex = -1;
-                        rbUndergrad.Checked = false;
-                        rbPostgrad.Checked = false;
-                        cmbCourse.SelectedIndex = -1;
-                        txtStudentNo.Clear();
-                   
+                    s.AddStudent();
+                    dgStudents.DataSource = st.Stus();
+
+                    MessageBox.Show("Student Added");
+                    txtFirstName.Clear();
+                    txtSurname.Clear();
+                    txtEmail.Clear();
+                    txtPhone.Clear();
+                    txtAddress1.Clear();
+                    txtAddress2.Clear();
+                    txtCity.Clear();
+                    cmbCounty.SelectedIndex = -1;
+                    rbUndergrad.Checked = false;
+                    rbPostgrad.Checked = false;
+                    cmbCourse.SelectedIndex = -1;
+                    txtStudentNo.Clear();
                 }
-           
-            
+            }
+            else
+            {
+                MessageBox.Show("One or more input fields is invalid");
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             studentlist.Clear();
-            bool valid = IdVerifier(txtSearchStudentNo.Text);
 
-            if (valid is false)
-            {
-                MessageBox.Show("Student Id not found");
-
-            }
-            else
-            {
-
-                Student s = new Student();
+          Student s = new Student();
                 s = s.GetStuById(int.Parse(txtSearchStudentNo.Text));
 
                 txtFirstName.Text = s.FirstName;
@@ -317,7 +337,7 @@ namespace B8IT119_CA
                 {
                     btnDeleteStu.Enabled = true;
                 }
-            }
+           
            
         }
 

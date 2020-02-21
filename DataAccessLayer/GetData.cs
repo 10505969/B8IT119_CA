@@ -16,7 +16,7 @@ namespace DataAccessLayer
         public DataTable getPassword(string username, string password)
 
         {
-            SqlCommand cmd = new SqlCommand("SELECT UserName, pword FROM USERS WHERE UserName=@USER AND pword=@PASS", openConnection());
+            SqlCommand cmd = new SqlCommand("SELECT UserName, pword FROM USERS WHERE UserName=@USER AND Pword=@PASS", openConnection());
             cmd.Parameters.AddWithValue("@USER", username);
             cmd.Parameters.AddWithValue("@PASS", password);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
