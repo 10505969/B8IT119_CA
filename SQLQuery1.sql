@@ -1,2 +1,6 @@
-﻿Insert into Students (FirstName, Email, Phone, AddressLine1, AddressLine2, County, Level, StudentNo)
-Values ('Ian', 'ian@bnb.com', '010202', '1 dd', '2 fff' , 'Donegal', 'Postgrad', 12345678)
+﻿CREATE TABLE [dbo].[Users] (
+    [Id]       INT           IDENTITY (1, 1) NOT NULL,
+    [UserName] VARCHAR (255) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL,
+	[Pword] varchar(255) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);

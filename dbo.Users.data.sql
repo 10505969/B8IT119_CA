@@ -1,3 +1,6 @@
-﻿SET IDENTITY_INSERT [dbo].[Users] OFF
-INSERT INTO [dbo].[Users] ([UserName], [pword]) VALUES ( 'ian', '0402')
-SET IDENTITY_INSERT [dbo].[Users] OFF
+﻿ALTER TABLE Users
+ ALTER COLUMN UserName varchar(255) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL
+
+ ALTER TABLE Users
+ ALTER COLUMN pword varchar(255) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL
+

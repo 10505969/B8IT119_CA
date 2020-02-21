@@ -68,6 +68,7 @@
             this.btnEditStudent = new System.Windows.Forms.Button();
             this.btnDeleteStu = new System.Windows.Forms.Button();
             this.epValidate = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblSearch = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgStudents)).BeginInit();
             this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.epValidate)).BeginInit();
@@ -401,11 +402,21 @@
             // 
             this.epValidate.ContainerControl = this;
             // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Location = new System.Drawing.Point(415, 246);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(104, 13);
+            this.lblSearch.TabIndex = 40;
+            this.lblSearch.Text = "Search by StudentId";
+            // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(633, 537);
+            this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnDeleteStu);
             this.Controls.Add(this.btnEditStudent);
             this.Controls.Add(this.txtSearchStudentNo);
@@ -487,5 +498,6 @@
         private System.Windows.Forms.Button btnEditStudent;
         private System.Windows.Forms.Button btnDeleteStu;
         private System.Windows.Forms.ErrorProvider epValidate;
+        private System.Windows.Forms.Label lblSearch;
     }
 }

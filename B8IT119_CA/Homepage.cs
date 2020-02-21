@@ -44,24 +44,21 @@ namespace B8IT119_CA
             }
         }
 
-
-        private bool Validate()
+        private bool ValidateFields()
         {
-
 
             int studentNoLengthChecker;
             int studentId = 0;
-
            
             studentNoLengthChecker = txtStudentNo.Text.Length;
 
-            //Regex phone = new Regex(@"\+?\d+-?\d+");
+            Regex phone = new Regex(@"\+\d+-?\d+");
 
             bool valid = txtFirstName.Text.Length > 0;
             valid &= txtSurname.Text.Length > 0;
             valid &= EmailChecker(txtEmail.Text);
-            //Match phoneMatch = phone.Match(txtEmail.Text);
-            //valid &= phoneMatch.Success;
+            Match phoneMatch = phone.Match(txtPhone.Text);
+            valid &= phoneMatch.Success;
             valid &= txtAddress1.Text.Length > 0;
             valid &= cmbCounty.SelectedIndex > -1;
             valid &= ButtonChecked();
@@ -70,37 +67,6 @@ namespace B8IT119_CA
             valid &= int.TryParse(txtStudentNo.Text, out studentId);
 
             return valid;
-        }
-
-
-        public bool EmailCheck(string email)
-        {
-            string[] components;
-            components = email.Split('@');
-
-            if (components.Length > 1)
-                {
-                    if (email.EndsWith("@") is false)
-                    {
-                        if (email.Contains(" ") is false)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                        return false;
-                        }
-                    }
-                    else
-                    {
-                    return false;
-                    }
-                }
-                else
-                {
-                return false;
-            }
-
         }
 
         public Homepage()
@@ -121,9 +87,7 @@ namespace B8IT119_CA
             cmbCourse.SelectedIndex = -1;            
 
         }
-
         
-
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
@@ -140,10 +104,7 @@ namespace B8IT119_CA
         private void newStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tab = 1;
-            btnSearch.Hide();
-            txtSearchStudentNo.Hide();
-            btnEditStudent.Hide();
-
+            
             txtFirstName.Clear();
             txtSurname.Clear();
             txtEmail.Clear();
@@ -162,93 +123,28 @@ namespace B8IT119_CA
             cmbCourse.Enabled = true;
 
             foreach (Control control in this.Controls)
-            {
-                if (control == btnSearch )
-                {
-                    control.Hide();
-                }
-                else if ( control == txtSearchStudentNo)
-                {
-                    control.Hide();
-                }
-                else if (control == btnEditStudent)
-                {
-                    control.Hide();
-                }
-                else if (control == btnDeleteStu)
-                {
-                    control.Hide();
-                }
-                else if (control == btnAddStudent)
-                {
-                    control.Show();
-                }
-                else
-                {
-                    control.Show();
-                }
-            }
-       
-        }
-
-        private void editStudentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tab = 2;
-            btnAddStudent.Hide();
-            txtFirstName.Clear();
-            txtSurname.Clear();
-            txtEmail.Clear();
-            txtPhone.Clear();
-            txtAddress1.Clear();
-            txtAddress2.Clear();
-            txtCity.Clear();
-            cmbCounty.SelectedIndex = -1;
-            rbUndergrad.Checked = false;
-            rbPostgrad.Checked = false;
-            cmbCourse.SelectedIndex = -1;
-            txtStudentNo.Clear();
-
-            txtFirstName.ReadOnly = true;
-            txtSurname.ReadOnly = true;
-            txtStudentNo.ReadOnly = true;
-            cmbCourse.Enabled = false;
-          
-            foreach (Control control in this.Controls)
-            {
-                if (control == btnAddStudent)
-                {
-                    control.Hide();
-                }
-                else if (control == btnDeleteStu)
-                {
-                    control.Hide();
-                }
-                else if (control == btnEditStudent)
-                {
-                    control.Show();
-                    control.Enabled = false;
-                }
-                else if (control == btnDeleteStu)
-                {
-                    control.Hide();
+                {             
+                    control.Show();               
                 }
 
-                else
-                {
-                    control.Show();
-                }
-            }
-        }
+                btnSearch.Hide();
+                txtSearchStudentNo.Hide();
+                lblSearch.Hide();
+                btnEditStudent.Hide();
+                btnDeleteStu.Hide();
+
+         }
 
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
 
             Student s = new Student();
-            if (Validate())
+            if (ValidateFields())
             {
-                if (s.IdVerifier(int.Parse(txtStudentNo.Text))){
+                if (s.IdVerifier(int.Parse(txtStudentNo.Text)))
+                {
 
-                    MessageBox.Show("StudentId Already Exitst");
+                    MessageBox.Show("Student number is already being used");
                 }
                 else
                 {
@@ -300,78 +196,165 @@ namespace B8IT119_CA
             }
         }
 
+        private void editStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tab = 2;
+            
+            txtFirstName.Clear();
+            txtSurname.Clear();
+            txtEmail.Clear();
+            txtPhone.Clear();
+            txtAddress1.Clear();
+            txtAddress2.Clear();
+            txtCity.Clear();
+            cmbCounty.SelectedIndex = -1;
+            rbUndergrad.Checked = false;
+            rbPostgrad.Checked = false;
+            cmbCourse.SelectedIndex = -1;
+            txtStudentNo.Clear();
+
+            txtFirstName.ReadOnly = true;
+            txtSurname.ReadOnly = true;
+            txtStudentNo.ReadOnly = true;
+            cmbCourse.Enabled = false;
+
+            foreach (Control control in this.Controls)
+            {
+                control.Hide();
+            }
+
+            mainMenu.Show();
+            dgStudents.Show();
+            txtSearchStudentNo.Show();
+            btnSearch.Show();
+            lblSearch.Show();
+        }
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             studentlist.Clear();
+            Student s = new Student();
 
-          Student s = new Student();
-                s = s.GetStuById(int.Parse(txtSearchStudentNo.Text));
+            bool valid = int.TryParse(txtSearchStudentNo.Text, out int studentId);
 
-                txtFirstName.Text = s.FirstName;
-                txtSurname.Text = s.LastName;
-                txtEmail.Text = s.Email;
-                txtPhone.Text = s.Phone;
-                txtAddress1.Text = s.Address1;
-                txtAddress2.Text = s.Address2;
-                txtCity.Text = s.City;
-                cmbCounty.SelectedItem = s.County;
-
-                if (s.Level == LevelEnum.Postgrad)
+            if (valid)
+            {
+                if (s.IdVerifier(studentId) is false)
                 {
-                    rbPostgrad.Checked = true;
-                }
-                else if (s.Level == LevelEnum.Undergrad)
-                {
-                    rbUndergrad.Checked = true;
-                }
 
-                cmbCourse.SelectedItem = s.Course;
-                txtStudentNo.Text = s.StudentNo.ToString();
-                studentlist.Add(s);
+                    MessageBox.Show("There is no student with that student number");
+                }
+                else
+                {
 
-                if (tab == 2)
-                {
-                    btnEditStudent.Enabled = true;
+
+                    s = s.GetStuById(studentId);
+
+                    txtFirstName.Text = s.FirstName;
+                    txtSurname.Text = s.LastName;
+                    txtEmail.Text = s.Email;
+                    txtPhone.Text = s.Phone;
+                    txtAddress1.Text = s.Address1;
+                    txtAddress2.Text = s.Address2;
+                    txtCity.Text = s.City;
+                    cmbCounty.SelectedItem = s.County;
+
+                    if (s.Level == LevelEnum.Postgrad)
+                    {
+                        rbPostgrad.Checked = true;
+                    }
+                    else if (s.Level == LevelEnum.Undergrad)
+                    {
+                        rbUndergrad.Checked = true;
+                    }
+
+                    cmbCourse.SelectedItem = s.Course;
+                    txtStudentNo.Text = s.StudentNo.ToString();
+                    studentlist.Add(s);
+
+                    foreach (Control control in this.Controls)
+                    {
+                        control.Show();
+                    }
+
+
+                    btnSearch.Hide();
+                    txtSearchStudentNo.Hide();
+                    lblSearch.Hide();
+                    btnAddStudent.Hide();
+
+                    if (tab == 2)
+                    {
+                        btnEditStudent.Show();
+                        btnDeleteStu.Hide();
+                    }
+                    else if (tab == 3)
+                    {
+                        btnEditStudent.Hide();
+                        btnDeleteStu.Show();
+                    }
                 }
-                else if (tab == 3)
-                {
-                    btnDeleteStu.Enabled = true;
-                }
-           
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid student number");
+            }
+          
            
         }
 
         private void btnEditStudent_Click(object sender, EventArgs e)
         {
-            foreach (Student s in studentlist)
+            if (ValidateFields())
             {
 
-                s.Email = txtEmail.Text;
-                s.Phone = txtPhone.Text;
-                s.Address1 = txtAddress1.Text;
-                s.Address2 = txtAddress2.Text;
-                s.City = txtCity.Text;
-                Enum.TryParse<CountiesEnum>(cmbCounty.SelectedValue.ToString(), out CountiesEnum county); ;
-                s.County = county;
 
-                if (rbPostgrad.Checked == true)
+                foreach (Student s in studentlist)
                 {
-                    s.Level = LevelEnum.Postgrad;                   
-                }
-                else if (rbUndergrad.Checked == true)                   
-                {
-                    s.Level = LevelEnum.Undergrad;
+
+                    s.Email = txtEmail.Text;
+                    s.Phone = txtPhone.Text;
+                    s.Address1 = txtAddress1.Text;
+                    s.Address2 = txtAddress2.Text;
+                    s.City = txtCity.Text;
+                    Enum.TryParse<CountiesEnum>(cmbCounty.SelectedValue.ToString(), out CountiesEnum county); ;
+                    s.County = county;
+
+                    if (rbPostgrad.Checked == true)
+                    {
+                        s.Level = LevelEnum.Postgrad;
+                    }
+                    else if (rbUndergrad.Checked == true)
+                    {
+                        s.Level = LevelEnum.Undergrad;
+                    }
+
+                    Enum.TryParse<CourseEnum>(cmbCourse.SelectedValue.ToString(), out CourseEnum course);
+                    s.Course = course;
+                    s.StudentNo = int.Parse(txtStudentNo.Text);
+                    s.EditStudent();
                 }
 
-                Enum.TryParse<CourseEnum>(cmbCourse.SelectedValue.ToString(), out CourseEnum course);
-                s.Course = course;
-                s.StudentNo = int.Parse(txtStudentNo.Text);
-                s.EditStudent();
+                dgStudents.DataSource = st.Stus();
+                studentlist.Clear();
+                foreach (Control control in this.Controls)
+                {
+                    control.Hide();
+                }
+
+                mainMenu.Show();
+                dgStudents.Show();
+                txtSearchStudentNo.Show();
+                txtSearchStudentNo.Clear();
+                btnSearch.Show();
+                lblSearch.Show();
             }
-
-            dgStudents.DataSource = st.Stus();
-            studentlist.Clear();
-        }
+            else
+            {
+                MessageBox.Show("One or more input fields is invalid");
+            }
+        
+    }
 
 
         private void deleteStudentToolStripMenuItem_Click(object sender, EventArgs e)
