@@ -28,7 +28,7 @@ namespace BusinessLayer
             DataSet ds = new DataSet();
             DataTable stus = data.getStudents();
             ds.Tables.Add(stus);
-            ds.WriteXml(@"Students.xml");
+            ds.WriteXml("Students.xml");
         }
 
     }
