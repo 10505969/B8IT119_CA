@@ -68,6 +68,11 @@
             this.btnDeleteStu = new System.Windows.Forms.Button();
             this.lblSearch = new System.Windows.Forms.Label();
             this.btnXmlOutput = new System.Windows.Forms.Button();
+            this.txtXMLFolderPath = new System.Windows.Forms.TextBox();
+            this.lblXmlOutput = new System.Windows.Forms.Label();
+            this.lblStudentXML = new System.Windows.Forms.Label();
+            this.txtXMLStudentPath = new System.Windows.Forms.TextBox();
+            this.btnXMLStudent = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgStudents)).BeginInit();
             this.mainMenu.SuspendLayout();
             this.SuspendLayout();
@@ -87,7 +92,7 @@
             this.studentToolStripMenuItem});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(633, 24);
+            this.mainMenu.Size = new System.Drawing.Size(692, 24);
             this.mainMenu.TabIndex = 10;
             // 
             // fileToolStripMenuItem
@@ -405,19 +410,68 @@
             // 
             // btnXmlOutput
             // 
-            this.btnXmlOutput.Location = new System.Drawing.Point(418, 86);
+            this.btnXmlOutput.Location = new System.Drawing.Point(403, 129);
             this.btnXmlOutput.Name = "btnXmlOutput";
-            this.btnXmlOutput.Size = new System.Drawing.Size(75, 23);
+            this.btnXmlOutput.Size = new System.Drawing.Size(186, 23);
             this.btnXmlOutput.TabIndex = 41;
-            this.btnXmlOutput.Text = "XML";
+            this.btnXmlOutput.Text = "Output Student Database to XML";
             this.btnXmlOutput.UseVisualStyleBackColor = true;
             this.btnXmlOutput.Click += new System.EventHandler(this.btnXmlOutput_Click);
+            // 
+            // txtXMLFolderPath
+            // 
+            this.txtXMLFolderPath.Location = new System.Drawing.Point(403, 93);
+            this.txtXMLFolderPath.Name = "txtXMLFolderPath";
+            this.txtXMLFolderPath.Size = new System.Drawing.Size(236, 20);
+            this.txtXMLFolderPath.TabIndex = 42;
+            // 
+            // lblXmlOutput
+            // 
+            this.lblXmlOutput.AutoSize = true;
+            this.lblXmlOutput.Location = new System.Drawing.Point(400, 51);
+            this.lblXmlOutput.Name = "lblXmlOutput";
+            this.lblXmlOutput.Size = new System.Drawing.Size(222, 39);
+            this.lblXmlOutput.TabIndex = 43;
+            this.lblXmlOutput.Text = "To output the entire student database please \r\nenter the full path of the folder " +
+    "you would like \r\nthe file to be written to.";
+            // 
+            // lblStudentXML
+            // 
+            this.lblStudentXML.AutoSize = true;
+            this.lblStudentXML.Location = new System.Drawing.Point(400, 300);
+            this.lblStudentXML.Name = "lblStudentXML";
+            this.lblStudentXML.Size = new System.Drawing.Size(247, 39);
+            this.lblStudentXML.TabIndex = 45;
+            this.lblStudentXML.Text = "To output the student record to an XML file please \r\nenter the full path of the f" +
+    "older you would like \r\nthe file to be written to.";
+            // 
+            // txtXMLStudentPath
+            // 
+            this.txtXMLStudentPath.Location = new System.Drawing.Point(403, 342);
+            this.txtXMLStudentPath.Name = "txtXMLStudentPath";
+            this.txtXMLStudentPath.Size = new System.Drawing.Size(236, 20);
+            this.txtXMLStudentPath.TabIndex = 44;
+            // 
+            // btnXMLStudent
+            // 
+            this.btnXMLStudent.Location = new System.Drawing.Point(403, 378);
+            this.btnXMLStudent.Name = "btnXMLStudent";
+            this.btnXMLStudent.Size = new System.Drawing.Size(186, 23);
+            this.btnXMLStudent.TabIndex = 46;
+            this.btnXMLStudent.Text = "Output Student Record to XML";
+            this.btnXMLStudent.UseVisualStyleBackColor = true;
+            this.btnXMLStudent.Click += new System.EventHandler(this.btnXMLStudent_Click);
             // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 537);
+            this.ClientSize = new System.Drawing.Size(692, 537);
+            this.Controls.Add(this.btnXMLStudent);
+            this.Controls.Add(this.lblStudentXML);
+            this.Controls.Add(this.txtXMLStudentPath);
+            this.Controls.Add(this.lblXmlOutput);
+            this.Controls.Add(this.txtXMLFolderPath);
             this.Controls.Add(this.btnXmlOutput);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnDeleteStu);
@@ -501,5 +555,10 @@
         private System.Windows.Forms.Button btnDeleteStu;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Button btnXmlOutput;
+        private System.Windows.Forms.TextBox txtXMLFolderPath;
+        private System.Windows.Forms.Label lblXmlOutput;
+        private System.Windows.Forms.Label lblStudentXML;
+        private System.Windows.Forms.TextBox txtXMLStudentPath;
+        private System.Windows.Forms.Button btnXMLStudent;
     }
 }

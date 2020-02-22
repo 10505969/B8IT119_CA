@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BusinessLayer;
 using System.Text.RegularExpressions;
 using System.Net.Mail;
+using System.IO;
 
 
 namespace B8IT119_CA
@@ -69,6 +70,31 @@ namespace B8IT119_CA
             return valid;
         }
 
+        //public static bool IsValidPath(string path)
+        //{
+        //    if (Directory.Exists(path))
+        //    {
+
+        //        //try
+        //        //{
+        //        //    path = path.Replace(@"\\", ":");
+        //        //    string temp = Path.GetPathRoot(path);
+        //        //    if (temp.StartsWith(@"\"))
+        //        //        return false;
+        //        //    string pt = Path.GetFullPath(path);
+        //        //}
+        //        //catch
+        //        //{
+        //        //    return false;
+        //        //}
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+
         public Homepage()
         {
             InitializeComponent();
@@ -80,6 +106,8 @@ namespace B8IT119_CA
             mainMenu.Show();
             dgStudents.Show();
             btnXmlOutput.Show();
+            txtXMLFolderPath.Show();
+            lblXmlOutput.Show();
 
             cmbCounty.DataSource = Enum.GetValues(typeof(CountiesEnum));
             cmbCounty.SelectedIndex = -1;
@@ -133,8 +161,12 @@ namespace B8IT119_CA
                 lblSearch.Hide();
                 btnEditStudent.Hide();
                 btnDeleteStu.Hide();
+                btnXMLStudent.Hide();
+            lblStudentXML.Hide();
+            txtXMLStudentPath.Hide();
+            btnXMLStudent.Hide();
 
-         }
+        }
 
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
@@ -150,7 +182,6 @@ namespace B8IT119_CA
                 else
                 {
                     s.FirstName = txtFirstName.Text;
-
                     s.LastName = txtSurname.Text;
                     s.Email = txtEmail.Text;
                     s.Phone = txtPhone.Text;
@@ -229,6 +260,11 @@ namespace B8IT119_CA
             txtSearchStudentNo.Show();
             btnSearch.Show();
             lblSearch.Show();
+            btnXmlOutput.Show();
+            txtXMLFolderPath.Show();
+            lblXmlOutput.Show();
+            
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -243,6 +279,9 @@ namespace B8IT119_CA
             txtSearchStudentNo.Show();
             btnSearch.Show();
             lblSearch.Show();
+            btnXmlOutput.Show();
+            txtXMLFolderPath.Show();
+            lblXmlOutput.Show();
 
             studentlist.Clear();
             Student s = new Student();
@@ -397,6 +436,9 @@ namespace B8IT119_CA
             txtSearchStudentNo.Show();
             btnSearch.Show();
             lblSearch.Show();
+            btnXmlOutput.Show();
+            txtXMLFolderPath.Show();
+            lblXmlOutput.Show();
         }
 
         private void btnDeleteStu_Click(object sender, EventArgs e)
@@ -416,7 +458,40 @@ namespace B8IT119_CA
 
         private void btnXmlOutput_Click(object sender, EventArgs e)
         {
-            st.XMLOutput(); 
+            
+            XMLOutput xml = new XMLOutput();
+            string folderpath = txtXMLFolderPath.Text;
+
+            bool valid = Directory.Exists(folderpath);
+
+                if (valid)
+            {
+                xml.FullTabletoXml(folderpath);
+                MessageBox.Show("The XML output is located here: \n" + folderpath + @"\Students.xml");
+                txtXMLFolderPath.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Please verify your folder path.");
+            }           
+        }
+
+        private void btnXMLStudent_Click(object sender, EventArgs e)
+        {
+            XMLOutput xml = new XMLOutput();
+            string folderpath = txtXMLStudentPath.Text;
+            bool valid = Directory.Exists(folderpath);
+
+            if (valid)
+            {
+                xml.StudentToXml(folderpath, txtStudentNo.Text);
+                MessageBox.Show("The XML output is located here: \n" + folderpath + @"\" + txtStudentNo.Text + @".xml");
+                txtXMLStudentPath.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Please verify your folder path.");
+            }
         }
     }
 }

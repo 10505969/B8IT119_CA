@@ -52,5 +52,20 @@ namespace DataAccessLayer
             return dt;
         }
 
+        public DataTable GetFullStudentTable()
+        {
+            {
+                SqlCommand cmd = new SqlCommand("Select * From Students", openConnection());
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                cmd.ExecuteNonQuery();
+
+                closeConnection();
+                return dt;
+            }
+
+        }
+
     }
 }

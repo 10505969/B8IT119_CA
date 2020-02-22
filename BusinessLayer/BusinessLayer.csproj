@@ -49,6 +49,7 @@
     <Compile Include="Student.cs" />
     <Compile Include="Students.cs" />
     <Compile Include="StudentTable.cs" />
+    <Compile Include="XMLOutput.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
