@@ -23,7 +23,13 @@ namespace BusinessLayer
             
         }
 
-     
+        public void XMLOutput()
+        {
+            DataSet ds = new DataSet();
+            DataTable stus = data.getStudents();
+            ds.Tables.Add(stus);
+            ds.WriteXml(@"Students.xml");
+        }
 
     }
 }

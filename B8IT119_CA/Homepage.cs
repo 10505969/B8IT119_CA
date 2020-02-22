@@ -52,7 +52,7 @@ namespace B8IT119_CA
            
             studentNoLengthChecker = txtStudentNo.Text.Length;
 
-            Regex phone = new Regex(@"\+\d+-?\d+");
+            Regex phone = new Regex(@"\+?\d+-?\d+");
 
             bool valid = txtFirstName.Text.Length > 0;
             valid &= txtSurname.Text.Length > 0;
@@ -79,6 +79,7 @@ namespace B8IT119_CA
             }
             mainMenu.Show();
             dgStudents.Show();
+            btnXmlOutput.Show();
 
             cmbCounty.DataSource = Enum.GetValues(typeof(CountiesEnum));
             cmbCounty.SelectedIndex = -1;
@@ -232,6 +233,17 @@ namespace B8IT119_CA
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            foreach (Control control in this.Controls)
+            {
+                control.Hide();
+            }
+
+            mainMenu.Show();
+            dgStudents.Show();
+            txtSearchStudentNo.Show();
+            btnSearch.Show();
+            lblSearch.Show();
+
             studentlist.Clear();
             Student s = new Student();
 
@@ -278,9 +290,7 @@ namespace B8IT119_CA
                     }
 
 
-                    btnSearch.Hide();
-                    txtSearchStudentNo.Hide();
-                    lblSearch.Hide();
+                    txtSearchStudentNo.Clear();
                     btnAddStudent.Hide();
 
                     if (tab == 2)
@@ -308,8 +318,7 @@ namespace B8IT119_CA
             if (ValidateFields())
             {
 
-
-                foreach (Student s in studentlist)
+            foreach (Student s in studentlist)
                 {
 
                     s.Email = txtEmail.Text;
@@ -333,6 +342,7 @@ namespace B8IT119_CA
                     s.Course = course;
                     s.StudentNo = int.Parse(txtStudentNo.Text);
                     s.EditStudent();
+                    MessageBox.Show("Record for student with Student Number " + s.StudentNo + " has been updated");
                 }
 
                 dgStudents.DataSource = st.Stus();
@@ -356,7 +366,6 @@ namespace B8IT119_CA
         
     }
 
-
         private void deleteStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tab = 3;
@@ -373,54 +382,41 @@ namespace B8IT119_CA
             cmbCourse.SelectedIndex = -1;
             txtStudentNo.Clear();
 
+            txtFirstName.ReadOnly = true;
+            txtSurname.ReadOnly = true;
+            txtStudentNo.ReadOnly = true;
+            cmbCourse.Enabled = false;
+
             foreach (Control control in this.Controls)
             {
-                if (control == btnAddStudent)
-                {
-                    control.Hide();
-                }
-                
-                else if (control == btnEditStudent)
-                {
-                    control.Hide();
-                }
-                else if (control == btnDeleteStu)
-                {
-                    control.Enabled = false;
-                }
-                else
-                {
-                    control.Show();
-                }
+                control.Hide();
             }
+
+            mainMenu.Show();
+            dgStudents.Show();
+            txtSearchStudentNo.Show();
+            btnSearch.Show();
+            lblSearch.Show();
         }
 
         private void btnDeleteStu_Click(object sender, EventArgs e)
         {
+            Student deletedStu = new Student();
+
             foreach (Student s in studentlist)
             {
                 s.DeleteStudent();
+                deletedStu = s;
             }
+
+            MessageBox.Show("Record for student with Student Number " + deletedStu.StudentNo + " has been deleted");
 
             studentlist.Clear();
         }
 
-        private void txtFirstName_Validated(object sender, EventArgs e)
+        private void btnXmlOutput_Click(object sender, EventArgs e)
         {
-            epValidate.SetError(txtFirstName, string.Empty);
-        }
-
-        private void txtFirstName_Validating(object sender, CancelEventArgs e)
-        {
-            bool cancel = false;
-
-            //Check to see if the textbox is empty
-            if (string.IsNullOrEmpty(txtFirstName.Text))
-            {
-                epValidate.SetError(txtFirstName, "Name must have a value");
-                cancel = true;
-            }
-            e.Cancel = cancel;
+            st.XMLOutput(); 
         }
     }
 }

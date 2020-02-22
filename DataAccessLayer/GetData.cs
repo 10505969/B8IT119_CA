@@ -30,7 +30,7 @@ namespace DataAccessLayer
 
         public DataTable getStudents()
         {
-            SqlCommand cmd = new SqlCommand("Select * From Students WHERE IsDeleted = 0", openConnection());
+            SqlCommand cmd = new SqlCommand("Select FirstName AS [First Name], LastName AS Surname, Email AS [Email Address], Phone AS [Phone No], AddressLine1 AS [Address Line 1], AddressLine2 AS [Address Line 2], City, County, Level, Course, StudentNo AS [Student Number] From Students WHERE IsDeleted = 0", openConnection());
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);

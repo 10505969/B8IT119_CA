@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dgStudents = new System.Windows.Forms.DataGridView();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,11 +66,10 @@
             this.txtSearchStudentNo = new System.Windows.Forms.TextBox();
             this.btnEditStudent = new System.Windows.Forms.Button();
             this.btnDeleteStu = new System.Windows.Forms.Button();
-            this.epValidate = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblSearch = new System.Windows.Forms.Label();
+            this.btnXmlOutput = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgStudents)).BeginInit();
             this.mainMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.epValidate)).BeginInit();
             this.SuspendLayout();
             // 
             // dgStudents
@@ -159,8 +157,6 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtFirstName.TabIndex = 11;
-            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtFirstName_Validating);
-            this.txtFirstName.Validated += new System.EventHandler(this.txtFirstName_Validated);
             // 
             // lblFirstName
             // 
@@ -398,10 +394,6 @@
             this.btnDeleteStu.UseVisualStyleBackColor = true;
             this.btnDeleteStu.Click += new System.EventHandler(this.btnDeleteStu_Click);
             // 
-            // epValidate
-            // 
-            this.epValidate.ContainerControl = this;
-            // 
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
@@ -411,11 +403,22 @@
             this.lblSearch.TabIndex = 40;
             this.lblSearch.Text = "Search by StudentId";
             // 
+            // btnXmlOutput
+            // 
+            this.btnXmlOutput.Location = new System.Drawing.Point(418, 86);
+            this.btnXmlOutput.Name = "btnXmlOutput";
+            this.btnXmlOutput.Size = new System.Drawing.Size(75, 23);
+            this.btnXmlOutput.TabIndex = 41;
+            this.btnXmlOutput.Text = "XML";
+            this.btnXmlOutput.UseVisualStyleBackColor = true;
+            this.btnXmlOutput.Click += new System.EventHandler(this.btnXmlOutput_Click);
+            // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(633, 537);
+            this.Controls.Add(this.btnXmlOutput);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnDeleteStu);
             this.Controls.Add(this.btnEditStudent);
@@ -452,7 +455,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgStudents)).EndInit();
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.epValidate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -497,7 +499,7 @@
         private System.Windows.Forms.TextBox txtSearchStudentNo;
         private System.Windows.Forms.Button btnEditStudent;
         private System.Windows.Forms.Button btnDeleteStu;
-        private System.Windows.Forms.ErrorProvider epValidate;
         private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.Button btnXmlOutput;
     }
 }
