@@ -67,5 +67,19 @@ namespace DataAccessLayer
 
         }
 
+        public DataTable GetStudentLogTable()
+        {
+            {
+                SqlCommand cmd = new SqlCommand("Select * From StudentLog", openConnection());
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                cmd.ExecuteNonQuery();
+
+                closeConnection();
+                return dt;
+            }
+
+        }
     }
 }

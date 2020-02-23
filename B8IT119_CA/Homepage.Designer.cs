@@ -73,8 +73,10 @@
             this.lblStudentXML = new System.Windows.Forms.Label();
             this.txtXMLStudentPath = new System.Windows.Forms.TextBox();
             this.btnXMLStudent = new System.Windows.Forms.Button();
+            this.dgChangeLog = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgStudents)).BeginInit();
             this.mainMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgChangeLog)).BeginInit();
             this.SuspendLayout();
             // 
             // dgStudents
@@ -155,6 +157,7 @@
             this.viewDatabaseHistoryToolStripMenuItem.Name = "viewDatabaseHistoryToolStripMenuItem";
             this.viewDatabaseHistoryToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.viewDatabaseHistoryToolStripMenuItem.Text = "View Database History";
+            this.viewDatabaseHistoryToolStripMenuItem.Click += new System.EventHandler(this.viewDatabaseHistoryToolStripMenuItem_Click);
             // 
             // txtFirstName
             // 
@@ -462,11 +465,20 @@
             this.btnXMLStudent.UseVisualStyleBackColor = true;
             this.btnXMLStudent.Click += new System.EventHandler(this.btnXMLStudent_Click);
             // 
+            // dgChangeLog
+            // 
+            this.dgChangeLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgChangeLog.Location = new System.Drawing.Point(12, 193);
+            this.dgChangeLog.Name = "dgChangeLog";
+            this.dgChangeLog.Size = new System.Drawing.Size(240, 150);
+            this.dgChangeLog.TabIndex = 47;
+            // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 537);
+            this.Controls.Add(this.dgChangeLog);
             this.Controls.Add(this.btnXMLStudent);
             this.Controls.Add(this.lblStudentXML);
             this.Controls.Add(this.txtXMLStudentPath);
@@ -509,6 +521,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgStudents)).EndInit();
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgChangeLog)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -560,5 +573,6 @@
         private System.Windows.Forms.Label lblStudentXML;
         private System.Windows.Forms.TextBox txtXMLStudentPath;
         private System.Windows.Forms.Button btnXMLStudent;
+        private System.Windows.Forms.DataGridView dgChangeLog;
     }
 }

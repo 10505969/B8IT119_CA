@@ -18,6 +18,7 @@ namespace B8IT119_CA
     public partial class Homepage : Form
     {
         StudentTable st = new StudentTable();
+        StudentTable logs = new StudentTable();
         Students studentlist = new Students();
         int tab;
 
@@ -99,6 +100,8 @@ namespace B8IT119_CA
         {
             InitializeComponent();
             dgStudents.DataSource = st.Stus();
+            dgChangeLog.DataSource = logs.History();
+
             foreach (Control control in this.Controls)
             {
                 control.Hide();
@@ -165,7 +168,7 @@ namespace B8IT119_CA
             lblStudentXML.Hide();
             txtXMLStudentPath.Hide();
             btnXMLStudent.Hide();
-
+            dgChangeLog.Hide();
         }
 
         private void btnAddStudent_Click(object sender, EventArgs e)
@@ -331,6 +334,7 @@ namespace B8IT119_CA
 
                     txtSearchStudentNo.Clear();
                     btnAddStudent.Hide();
+                    dgChangeLog.Hide();
 
                     if (tab == 2)
                     {
@@ -492,6 +496,15 @@ namespace B8IT119_CA
             {
                 MessageBox.Show("Please verify your folder path.");
             }
+        }
+
+        private void viewDatabaseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in this.Controls)
+            {
+                c.Hide();
+            }
+            dgChangeLog.Show();
         }
     }
 }

@@ -23,12 +23,9 @@ namespace BusinessLayer
             
         }
 
-        public void XMLOutput()
+       public DataTable History()
         {
-            DataSet ds = new DataSet();
-            DataTable stus = data.getStudents();
-            ds.Tables.Add(stus);
-            ds.WriteXml(@"C:\Users\ianol\OneDrive\Documents\Students.xml");
+            return data.GetStudentLogTable();
         }
 
     }
