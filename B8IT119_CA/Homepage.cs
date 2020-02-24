@@ -117,7 +117,6 @@ namespace B8IT119_CA
 
             cmbCourse.DataSource = Enum.GetValues(typeof(CourseEnum));
             cmbCourse.SelectedIndex = -1;            
-
         }
         
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -205,10 +204,9 @@ namespace B8IT119_CA
                     s.Course = course;
                     s.StudentNo = int.Parse(txtStudentNo.Text);
 
-
-
                     s.AddStudent();
                     dgStudents.DataSource = st.Stus();
+                    dgChangeLog.DataSource = logs.History();
 
                     MessageBox.Show("Student Added");
                     txtFirstName.Clear();
@@ -331,7 +329,6 @@ namespace B8IT119_CA
                         control.Show();
                     }
 
-
                     txtSearchStudentNo.Clear();
                     btnAddStudent.Hide();
                     dgChangeLog.Hide();
@@ -389,6 +386,7 @@ namespace B8IT119_CA
                 }
 
                 dgStudents.DataSource = st.Stus();
+                dgChangeLog.DataSource = logs.History();
                 studentlist.Clear();
                 foreach (Control control in this.Controls)
                 {
@@ -457,6 +455,8 @@ namespace B8IT119_CA
 
             MessageBox.Show("Record for student with Student Number " + deletedStu.StudentNo + " has been deleted");
 
+            dgStudents.DataSource = st.Stus();
+            dgChangeLog.DataSource = logs.History();
             studentlist.Clear();
         }
 
@@ -505,6 +505,7 @@ namespace B8IT119_CA
                 c.Hide();
             }
             dgChangeLog.Show();
+            mainMenu.Show();
         }
     }
 }

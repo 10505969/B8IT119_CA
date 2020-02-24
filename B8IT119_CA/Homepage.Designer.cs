@@ -84,7 +84,7 @@
             this.dgStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgStudents.Location = new System.Drawing.Point(12, 36);
             this.dgStudents.Name = "dgStudents";
-            this.dgStudents.Size = new System.Drawing.Size(324, 150);
+            this.dgStudents.Size = new System.Drawing.Size(620, 163);
             this.dgStudents.TabIndex = 9;
             // 
             // mainMenu
@@ -161,7 +161,7 @@
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(213, 213);
+            this.txtFirstName.Location = new System.Drawing.Point(193, 311);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtFirstName.TabIndex = 11;
@@ -169,7 +169,7 @@
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(77, 220);
+            this.lblFirstName.Location = new System.Drawing.Point(57, 318);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(57, 13);
             this.lblFirstName.TabIndex = 12;
@@ -178,7 +178,7 @@
             // lblSurname
             // 
             this.lblSurname.AutoSize = true;
-            this.lblSurname.Location = new System.Drawing.Point(77, 246);
+            this.lblSurname.Location = new System.Drawing.Point(57, 344);
             this.lblSurname.Name = "lblSurname";
             this.lblSurname.Size = new System.Drawing.Size(49, 13);
             this.lblSurname.TabIndex = 14;
@@ -186,7 +186,7 @@
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(213, 239);
+            this.txtSurname.Location = new System.Drawing.Point(193, 337);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(100, 20);
             this.txtSurname.TabIndex = 13;
@@ -194,7 +194,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(77, 272);
+            this.lblEmail.Location = new System.Drawing.Point(57, 370);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(32, 13);
             this.lblEmail.TabIndex = 16;
@@ -202,7 +202,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(213, 265);
+            this.txtEmail.Location = new System.Drawing.Point(193, 363);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(100, 20);
             this.txtEmail.TabIndex = 15;
@@ -210,7 +210,7 @@
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(77, 298);
+            this.lblPhone.Location = new System.Drawing.Point(57, 396);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(38, 13);
             this.lblPhone.TabIndex = 18;
@@ -218,7 +218,7 @@
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(213, 291);
+            this.txtPhone.Location = new System.Drawing.Point(193, 389);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 20);
             this.txtPhone.TabIndex = 17;
@@ -226,7 +226,7 @@
             // lblAddress1
             // 
             this.lblAddress1.AutoSize = true;
-            this.lblAddress1.Location = new System.Drawing.Point(77, 326);
+            this.lblAddress1.Location = new System.Drawing.Point(57, 424);
             this.lblAddress1.Name = "lblAddress1";
             this.lblAddress1.Size = new System.Drawing.Size(77, 13);
             this.lblAddress1.TabIndex = 20;
@@ -234,7 +234,7 @@
             // 
             // txtAddress1
             // 
-            this.txtAddress1.Location = new System.Drawing.Point(213, 319);
+            this.txtAddress1.Location = new System.Drawing.Point(193, 417);
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.Size = new System.Drawing.Size(100, 20);
             this.txtAddress1.TabIndex = 19;
@@ -242,7 +242,7 @@
             // lblAddress2
             // 
             this.lblAddress2.AutoSize = true;
-            this.lblAddress2.Location = new System.Drawing.Point(77, 352);
+            this.lblAddress2.Location = new System.Drawing.Point(57, 450);
             this.lblAddress2.Name = "lblAddress2";
             this.lblAddress2.Size = new System.Drawing.Size(77, 13);
             this.lblAddress2.TabIndex = 22;
@@ -250,7 +250,7 @@
             // 
             // txtAddress2
             // 
-            this.txtAddress2.Location = new System.Drawing.Point(213, 345);
+            this.txtAddress2.Location = new System.Drawing.Point(193, 443);
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.Size = new System.Drawing.Size(100, 20);
             this.txtAddress2.TabIndex = 21;
@@ -258,7 +258,7 @@
             // lblCounty
             // 
             this.lblCounty.AutoSize = true;
-            this.lblCounty.Location = new System.Drawing.Point(77, 404);
+            this.lblCounty.Location = new System.Drawing.Point(57, 502);
             this.lblCounty.Name = "lblCounty";
             this.lblCounty.Size = new System.Drawing.Size(40, 13);
             this.lblCounty.TabIndex = 26;
@@ -267,7 +267,7 @@
             // lblCity
             // 
             this.lblCity.AutoSize = true;
-            this.lblCity.Location = new System.Drawing.Point(77, 378);
+            this.lblCity.Location = new System.Drawing.Point(57, 476);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(24, 13);
             this.lblCity.TabIndex = 24;
@@ -275,7 +275,7 @@
             // 
             // txtCity
             // 
-            this.txtCity.Location = new System.Drawing.Point(213, 371);
+            this.txtCity.Location = new System.Drawing.Point(193, 469);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(100, 20);
             this.txtCity.TabIndex = 23;
@@ -284,7 +284,7 @@
             // 
             this.cmbCounty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCounty.FormattingEnabled = true;
-            this.cmbCounty.Location = new System.Drawing.Point(213, 401);
+            this.cmbCounty.Location = new System.Drawing.Point(193, 499);
             this.cmbCounty.Name = "cmbCounty";
             this.cmbCounty.Size = new System.Drawing.Size(121, 21);
             this.cmbCounty.TabIndex = 27;
@@ -292,7 +292,7 @@
             // lblLevel
             // 
             this.lblLevel.AutoSize = true;
-            this.lblLevel.Location = new System.Drawing.Point(77, 441);
+            this.lblLevel.Location = new System.Drawing.Point(57, 539);
             this.lblLevel.Name = "lblLevel";
             this.lblLevel.Size = new System.Drawing.Size(33, 13);
             this.lblLevel.TabIndex = 28;
@@ -301,7 +301,7 @@
             // rbUndergrad
             // 
             this.rbUndergrad.AutoSize = true;
-            this.rbUndergrad.Location = new System.Drawing.Point(213, 441);
+            this.rbUndergrad.Location = new System.Drawing.Point(193, 539);
             this.rbUndergrad.Name = "rbUndergrad";
             this.rbUndergrad.Size = new System.Drawing.Size(75, 17);
             this.rbUndergrad.TabIndex = 29;
@@ -312,7 +312,7 @@
             // rbPostgrad
             // 
             this.rbPostgrad.AutoSize = true;
-            this.rbPostgrad.Location = new System.Drawing.Point(294, 441);
+            this.rbPostgrad.Location = new System.Drawing.Point(274, 539);
             this.rbPostgrad.Name = "rbPostgrad";
             this.rbPostgrad.Size = new System.Drawing.Size(67, 17);
             this.rbPostgrad.TabIndex = 30;
@@ -324,7 +324,7 @@
             // 
             this.cmbCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCourse.FormattingEnabled = true;
-            this.cmbCourse.Location = new System.Drawing.Point(213, 478);
+            this.cmbCourse.Location = new System.Drawing.Point(193, 576);
             this.cmbCourse.Name = "cmbCourse";
             this.cmbCourse.Size = new System.Drawing.Size(121, 21);
             this.cmbCourse.TabIndex = 32;
@@ -332,7 +332,7 @@
             // lblCourse
             // 
             this.lblCourse.AutoSize = true;
-            this.lblCourse.Location = new System.Drawing.Point(77, 481);
+            this.lblCourse.Location = new System.Drawing.Point(57, 579);
             this.lblCourse.Name = "lblCourse";
             this.lblCourse.Size = new System.Drawing.Size(40, 13);
             this.lblCourse.TabIndex = 31;
@@ -341,7 +341,7 @@
             // lblStudentNo
             // 
             this.lblStudentNo.AutoSize = true;
-            this.lblStudentNo.Location = new System.Drawing.Point(77, 512);
+            this.lblStudentNo.Location = new System.Drawing.Point(57, 610);
             this.lblStudentNo.Name = "lblStudentNo";
             this.lblStudentNo.Size = new System.Drawing.Size(64, 13);
             this.lblStudentNo.TabIndex = 33;
@@ -349,7 +349,7 @@
             // 
             // txtStudentNo
             // 
-            this.txtStudentNo.Location = new System.Drawing.Point(213, 505);
+            this.txtStudentNo.Location = new System.Drawing.Point(193, 603);
             this.txtStudentNo.MaxLength = 8;
             this.txtStudentNo.Name = "txtStudentNo";
             this.txtStudentNo.Size = new System.Drawing.Size(100, 20);
@@ -357,7 +357,7 @@
             // 
             // btnAddStudent
             // 
-            this.btnAddStudent.Location = new System.Drawing.Point(418, 210);
+            this.btnAddStudent.Location = new System.Drawing.Point(403, 308);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(75, 23);
             this.btnAddStudent.TabIndex = 35;
@@ -367,7 +367,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(529, 265);
+            this.btnSearch.Location = new System.Drawing.Point(514, 363);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 36;
@@ -377,14 +377,14 @@
             // 
             // txtSearchStudentNo
             // 
-            this.txtSearchStudentNo.Location = new System.Drawing.Point(418, 265);
+            this.txtSearchStudentNo.Location = new System.Drawing.Point(403, 363);
             this.txtSearchStudentNo.Name = "txtSearchStudentNo";
             this.txtSearchStudentNo.Size = new System.Drawing.Size(100, 20);
             this.txtSearchStudentNo.TabIndex = 37;
             // 
             // btnEditStudent
             // 
-            this.btnEditStudent.Location = new System.Drawing.Point(418, 210);
+            this.btnEditStudent.Location = new System.Drawing.Point(403, 308);
             this.btnEditStudent.Name = "btnEditStudent";
             this.btnEditStudent.Size = new System.Drawing.Size(75, 23);
             this.btnEditStudent.TabIndex = 38;
@@ -394,7 +394,7 @@
             // 
             // btnDeleteStu
             // 
-            this.btnDeleteStu.Location = new System.Drawing.Point(418, 210);
+            this.btnDeleteStu.Location = new System.Drawing.Point(403, 308);
             this.btnDeleteStu.Name = "btnDeleteStu";
             this.btnDeleteStu.Size = new System.Drawing.Size(90, 23);
             this.btnDeleteStu.TabIndex = 39;
@@ -405,7 +405,7 @@
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(415, 246);
+            this.lblSearch.Location = new System.Drawing.Point(400, 344);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(104, 13);
             this.lblSearch.TabIndex = 40;
@@ -413,7 +413,7 @@
             // 
             // btnXmlOutput
             // 
-            this.btnXmlOutput.Location = new System.Drawing.Point(403, 129);
+            this.btnXmlOutput.Location = new System.Drawing.Point(15, 280);
             this.btnXmlOutput.Name = "btnXmlOutput";
             this.btnXmlOutput.Size = new System.Drawing.Size(186, 23);
             this.btnXmlOutput.TabIndex = 41;
@@ -423,7 +423,7 @@
             // 
             // txtXMLFolderPath
             // 
-            this.txtXMLFolderPath.Location = new System.Drawing.Point(403, 93);
+            this.txtXMLFolderPath.Location = new System.Drawing.Point(15, 244);
             this.txtXMLFolderPath.Name = "txtXMLFolderPath";
             this.txtXMLFolderPath.Size = new System.Drawing.Size(236, 20);
             this.txtXMLFolderPath.TabIndex = 42;
@@ -431,7 +431,7 @@
             // lblXmlOutput
             // 
             this.lblXmlOutput.AutoSize = true;
-            this.lblXmlOutput.Location = new System.Drawing.Point(400, 51);
+            this.lblXmlOutput.Location = new System.Drawing.Point(12, 202);
             this.lblXmlOutput.Name = "lblXmlOutput";
             this.lblXmlOutput.Size = new System.Drawing.Size(222, 39);
             this.lblXmlOutput.TabIndex = 43;
@@ -441,7 +441,7 @@
             // lblStudentXML
             // 
             this.lblStudentXML.AutoSize = true;
-            this.lblStudentXML.Location = new System.Drawing.Point(400, 300);
+            this.lblStudentXML.Location = new System.Drawing.Point(385, 398);
             this.lblStudentXML.Name = "lblStudentXML";
             this.lblStudentXML.Size = new System.Drawing.Size(247, 39);
             this.lblStudentXML.TabIndex = 45;
@@ -450,14 +450,14 @@
             // 
             // txtXMLStudentPath
             // 
-            this.txtXMLStudentPath.Location = new System.Drawing.Point(403, 342);
+            this.txtXMLStudentPath.Location = new System.Drawing.Point(388, 440);
             this.txtXMLStudentPath.Name = "txtXMLStudentPath";
             this.txtXMLStudentPath.Size = new System.Drawing.Size(236, 20);
             this.txtXMLStudentPath.TabIndex = 44;
             // 
             // btnXMLStudent
             // 
-            this.btnXMLStudent.Location = new System.Drawing.Point(403, 378);
+            this.btnXMLStudent.Location = new System.Drawing.Point(388, 476);
             this.btnXMLStudent.Name = "btnXMLStudent";
             this.btnXMLStudent.Size = new System.Drawing.Size(186, 23);
             this.btnXMLStudent.TabIndex = 46;
@@ -468,16 +468,16 @@
             // dgChangeLog
             // 
             this.dgChangeLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgChangeLog.Location = new System.Drawing.Point(12, 193);
+            this.dgChangeLog.Location = new System.Drawing.Point(12, 36);
             this.dgChangeLog.Name = "dgChangeLog";
-            this.dgChangeLog.Size = new System.Drawing.Size(240, 150);
+            this.dgChangeLog.Size = new System.Drawing.Size(620, 163);
             this.dgChangeLog.TabIndex = 47;
             // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 537);
+            this.ClientSize = new System.Drawing.Size(692, 715);
             this.Controls.Add(this.dgChangeLog);
             this.Controls.Add(this.btnXMLStudent);
             this.Controls.Add(this.lblStudentXML);
