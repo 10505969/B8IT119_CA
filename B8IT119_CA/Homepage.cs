@@ -71,31 +71,6 @@ namespace B8IT119_CA
             return valid;
         }
 
-        //public static bool IsValidPath(string path)
-        //{
-        //    if (Directory.Exists(path))
-        //    {
-
-        //        //try
-        //        //{
-        //        //    path = path.Replace(@"\\", ":");
-        //        //    string temp = Path.GetPathRoot(path);
-        //        //    if (temp.StartsWith(@"\"))
-        //        //        return false;
-        //        //    string pt = Path.GetFullPath(path);
-        //        //}
-        //        //catch
-        //        //{
-        //        //    return false;
-        //        //}
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
-
         public Homepage()
         {
             InitializeComponent();
@@ -150,6 +125,14 @@ namespace B8IT119_CA
             txtStudentNo.Clear();
             txtFirstName.ReadOnly = false;
             txtSurname.ReadOnly = false;
+            txtEmail.ReadOnly = false;
+            txtPhone.ReadOnly = false;
+            txtAddress1.ReadOnly = false;
+            txtAddress2.ReadOnly = false;
+            txtCity.ReadOnly = false;
+            cmbCounty.Enabled = true;
+            rbPostgrad.Enabled = true;
+            rbUndergrad.Enabled = true;
             txtStudentNo.ReadOnly = false;
             cmbCourse.Enabled = true;
 
@@ -158,12 +141,12 @@ namespace B8IT119_CA
                     control.Show();               
                 }
 
-                btnSearch.Hide();
-                txtSearchStudentNo.Hide();
-                lblSearch.Hide();
-                btnEditStudent.Hide();
-                btnDeleteStu.Hide();
-                btnXMLStudent.Hide();
+            btnSearch.Hide();
+            txtSearchStudentNo.Hide();
+            lblSearch.Hide();
+            btnEditStudent.Hide();
+            btnDeleteStu.Hide();
+            btnXMLStudent.Hide();
             lblStudentXML.Hide();
             txtXMLStudentPath.Hide();
             btnXMLStudent.Hide();
@@ -178,7 +161,6 @@ namespace B8IT119_CA
             {
                 if (s.IdVerifier(int.Parse(txtStudentNo.Text)))
                 {
-
                     MessageBox.Show("Student number is already being used");
                 }
                 else
@@ -249,7 +231,16 @@ namespace B8IT119_CA
             txtFirstName.ReadOnly = true;
             txtSurname.ReadOnly = true;
             txtStudentNo.ReadOnly = true;
+            txtEmail.ReadOnly = false;
+            txtPhone.ReadOnly = false;
+            txtAddress1.ReadOnly = false;
+            txtAddress2.ReadOnly = false;
+            txtCity.ReadOnly = false;
+            cmbCounty.Enabled = true;
+            rbPostgrad.Enabled = true;
+            rbUndergrad.Enabled = true;
             cmbCourse.Enabled = false;
+
 
             foreach (Control control in this.Controls)
             {
@@ -427,6 +418,14 @@ namespace B8IT119_CA
             txtSurname.ReadOnly = true;
             txtStudentNo.ReadOnly = true;
             cmbCourse.Enabled = false;
+            txtEmail.ReadOnly = true;
+            txtPhone.ReadOnly = true;
+            txtAddress1.ReadOnly = true;
+            txtAddress2.ReadOnly = true;
+            txtCity.ReadOnly = true;
+            cmbCounty.Enabled = false;
+            rbPostgrad.Enabled = false;
+            rbUndergrad.Enabled = false;
 
             foreach (Control control in this.Controls)
             {
@@ -500,6 +499,7 @@ namespace B8IT119_CA
 
         private void viewDatabaseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            tab = 4;
             foreach (Control c in this.Controls)
             {
                 c.Hide();
