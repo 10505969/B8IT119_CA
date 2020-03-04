@@ -378,6 +378,7 @@
             // txtSearchStudentNo
             // 
             this.txtSearchStudentNo.Location = new System.Drawing.Point(403, 363);
+            this.txtSearchStudentNo.MaxLength = 8;
             this.txtSearchStudentNo.Name = "txtSearchStudentNo";
             this.txtSearchStudentNo.Size = new System.Drawing.Size(100, 20);
             this.txtSearchStudentNo.TabIndex = 37;

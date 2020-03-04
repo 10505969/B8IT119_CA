@@ -11,6 +11,7 @@ using BusinessLayer;
 using System.Text.RegularExpressions;
 using System.Net.Mail;
 using System.IO;
+using System.Configuration;
 
 
 namespace B8IT119_CA
@@ -54,7 +55,10 @@ namespace B8IT119_CA
            
             studentNoLengthChecker = txtStudentNo.Text.Length;
 
-            Regex phone = new Regex(@"\+?\d+-?\d+");
+            var p = ConfigurationManager.AppSettings["phone"];
+
+            Regex phone = new Regex(p);
+                
 
             bool valid = txtFirstName.Text.Length > 0;
             valid &= txtSurname.Text.Length > 0;
