@@ -43,7 +43,7 @@ namespace DataAccessLayer
 
         public DataTable GetStudentByStuNo(int studentno)
         {
-            SqlCommand cmd = new SqlCommand("Select * From Students WHERE StudentNo=@STUDENTNO", openConnection());
+            SqlCommand cmd = new SqlCommand("Select * From Students WHERE StudentNo=@STUDENTNO AND IsDeleted=0", openConnection());
             cmd.Parameters.AddWithValue("@STUDENTNO", studentno);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();

@@ -390,6 +390,9 @@ namespace B8IT119_CA
                 txtSearchStudentNo.Clear();
                 btnSearch.Show();
                 lblSearch.Show();
+                txtXMLFolderPath.Show();
+                lblXmlOutput.Show();
+                btnXmlOutput.Show();
             }
             else
             {
@@ -457,6 +460,34 @@ namespace B8IT119_CA
             dgStudents.DataSource = st.Stus();
             dgChangeLog.DataSource = logs.History();
             studentlist.Clear();
+            txtFirstName.Clear();
+            txtSurname.Clear();
+            txtEmail.Clear();
+            txtPhone.Clear();
+            txtAddress1.Clear();
+            txtAddress2.Clear();
+            txtCity.Clear();
+            cmbCounty.SelectedIndex = -1;
+            rbUndergrad.Checked = false;
+            rbPostgrad.Checked = false;
+            cmbCourse.SelectedIndex = -1;
+            txtStudentNo.Clear();
+
+            foreach (Control control in this.Controls)
+            {
+                control.Hide();
+            }
+
+            mainMenu.Show();
+            dgStudents.Show();
+            txtSearchStudentNo.Show();
+            txtSearchStudentNo.Clear();
+            btnSearch.Show();
+            lblSearch.Show();
+            txtXMLFolderPath.Show();
+            lblXmlOutput.Show();
+            btnXmlOutput.Show();
+
         }
 
         private void btnXmlOutput_Click(object sender, EventArgs e)
@@ -484,7 +515,7 @@ namespace B8IT119_CA
             XMLOutput xml = new XMLOutput();
             string folderpath = txtXMLStudentPath.Text;
             bool valid = Directory.Exists(folderpath);
-
+           
             if (valid)
             {
                 xml.StudentToXml(folderpath, txtStudentNo.Text);
