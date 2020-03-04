@@ -163,7 +163,7 @@ namespace B8IT119_CA
             Student s = new Student();
             if (ValidateFields())
             {
-                if (s.IdVerifier(int.Parse(txtStudentNo.Text)))
+                if (s.StudentNoInUse(int.Parse(txtStudentNo.Text)))
                 {
                     MessageBox.Show("Student number is already being used");
                 }

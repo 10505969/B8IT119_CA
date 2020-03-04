@@ -6,6 +6,8 @@
     [LastName]        VARCHAR (255) NOT NULL,
     [EmailNew]        VARCHAR (255) NULL,
     [EmailOld]        VARCHAR (255) NULL,
+    [PhoneNew]        VARCHAR (255) NULL,
+    [PhoneOld]        VARCHAR (255) NULL,
     [AddressLine1New] VARCHAR (255) NULL,
     [AddressLine1Old] VARCHAR (255) NULL,
     [AddressLine2New] VARCHAR (255) NULL,

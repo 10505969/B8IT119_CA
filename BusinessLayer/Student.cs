@@ -110,6 +110,16 @@ namespace BusinessLayer
             else
                 return false;
         }
+
+        public bool StudentNoInUse(int studentno)
+        {
+            if (gdata.CheckStudentNumber(studentno).Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
     }
 
 }
