@@ -74,6 +74,16 @@
             this.txtXMLStudentPath = new System.Windows.Forms.TextBox();
             this.btnXMLStudent = new System.Windows.Forms.Button();
             this.dgChangeLog = new System.Windows.Forms.DataGridView();
+            this.lblMan1 = new System.Windows.Forms.Label();
+            this.lblMan2 = new System.Windows.Forms.Label();
+            this.lblMan4 = new System.Windows.Forms.Label();
+            this.lblMan3 = new System.Windows.Forms.Label();
+            this.lblMan5 = new System.Windows.Forms.Label();
+            this.lblMan6 = new System.Windows.Forms.Label();
+            this.lblMan7 = new System.Windows.Forms.Label();
+            this.lblMan8 = new System.Windows.Forms.Label();
+            this.lblMan9 = new System.Windows.Forms.Label();
+            this.lblMan10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgStudents)).BeginInit();
             this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgChangeLog)).BeginInit();
@@ -474,11 +484,121 @@
             this.dgChangeLog.Size = new System.Drawing.Size(620, 163);
             this.dgChangeLog.TabIndex = 47;
             // 
+            // lblMan1
+            // 
+            this.lblMan1.AutoSize = true;
+            this.lblMan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMan1.Location = new System.Drawing.Point(296, 316);
+            this.lblMan1.Name = "lblMan1";
+            this.lblMan1.Size = new System.Drawing.Size(14, 17);
+            this.lblMan1.TabIndex = 48;
+            this.lblMan1.Text = "*";
+            // 
+            // lblMan2
+            // 
+            this.lblMan2.AutoSize = true;
+            this.lblMan2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMan2.Location = new System.Drawing.Point(296, 342);
+            this.lblMan2.Name = "lblMan2";
+            this.lblMan2.Size = new System.Drawing.Size(14, 17);
+            this.lblMan2.TabIndex = 50;
+            this.lblMan2.Text = "*";
+            // 
+            // lblMan4
+            // 
+            this.lblMan4.AutoSize = true;
+            this.lblMan4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMan4.Location = new System.Drawing.Point(296, 394);
+            this.lblMan4.Name = "lblMan4";
+            this.lblMan4.Size = new System.Drawing.Size(14, 17);
+            this.lblMan4.TabIndex = 51;
+            this.lblMan4.Text = "*";
+            // 
+            // lblMan3
+            // 
+            this.lblMan3.AutoSize = true;
+            this.lblMan3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMan3.Location = new System.Drawing.Point(296, 368);
+            this.lblMan3.Name = "lblMan3";
+            this.lblMan3.Size = new System.Drawing.Size(14, 17);
+            this.lblMan3.TabIndex = 52;
+            this.lblMan3.Text = "*";
+            // 
+            // lblMan5
+            // 
+            this.lblMan5.AutoSize = true;
+            this.lblMan5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMan5.Location = new System.Drawing.Point(296, 422);
+            this.lblMan5.Name = "lblMan5";
+            this.lblMan5.Size = new System.Drawing.Size(14, 17);
+            this.lblMan5.TabIndex = 53;
+            this.lblMan5.Text = "*";
+            // 
+            // lblMan6
+            // 
+            this.lblMan6.AutoSize = true;
+            this.lblMan6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMan6.Location = new System.Drawing.Point(320, 503);
+            this.lblMan6.Name = "lblMan6";
+            this.lblMan6.Size = new System.Drawing.Size(14, 17);
+            this.lblMan6.TabIndex = 54;
+            this.lblMan6.Text = "*";
+            // 
+            // lblMan7
+            // 
+            this.lblMan7.AutoSize = true;
+            this.lblMan7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMan7.Location = new System.Drawing.Point(347, 539);
+            this.lblMan7.Name = "lblMan7";
+            this.lblMan7.Size = new System.Drawing.Size(14, 17);
+            this.lblMan7.TabIndex = 55;
+            this.lblMan7.Text = "*";
+            // 
+            // lblMan8
+            // 
+            this.lblMan8.AutoSize = true;
+            this.lblMan8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMan8.Location = new System.Drawing.Point(327, 580);
+            this.lblMan8.Name = "lblMan8";
+            this.lblMan8.Size = new System.Drawing.Size(14, 17);
+            this.lblMan8.TabIndex = 56;
+            this.lblMan8.Text = "*";
+            // 
+            // lblMan9
+            // 
+            this.lblMan9.AutoSize = true;
+            this.lblMan9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMan9.Location = new System.Drawing.Point(320, 606);
+            this.lblMan9.Name = "lblMan9";
+            this.lblMan9.Size = new System.Drawing.Size(14, 17);
+            this.lblMan9.TabIndex = 57;
+            this.lblMan9.Text = "*";
+            // 
+            // lblMan10
+            // 
+            this.lblMan10.AutoSize = true;
+            this.lblMan10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMan10.Location = new System.Drawing.Point(57, 647);
+            this.lblMan10.Name = "lblMan10";
+            this.lblMan10.Size = new System.Drawing.Size(135, 17);
+            this.lblMan10.TabIndex = 58;
+            this.lblMan10.Text = "* Mandatory Field";
+            // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 715);
+            this.Controls.Add(this.lblMan10);
+            this.Controls.Add(this.lblMan9);
+            this.Controls.Add(this.lblMan8);
+            this.Controls.Add(this.lblMan7);
+            this.Controls.Add(this.lblMan6);
+            this.Controls.Add(this.lblMan5);
+            this.Controls.Add(this.lblMan3);
+            this.Controls.Add(this.lblMan4);
+            this.Controls.Add(this.lblMan2);
+            this.Controls.Add(this.lblMan1);
             this.Controls.Add(this.dgChangeLog);
             this.Controls.Add(this.btnXMLStudent);
             this.Controls.Add(this.lblStudentXML);
@@ -575,5 +695,15 @@
         private System.Windows.Forms.TextBox txtXMLStudentPath;
         private System.Windows.Forms.Button btnXMLStudent;
         private System.Windows.Forms.DataGridView dgChangeLog;
+        private System.Windows.Forms.Label lblMan1;
+        private System.Windows.Forms.Label lblMan2;
+        private System.Windows.Forms.Label lblMan4;
+        private System.Windows.Forms.Label lblMan3;
+        private System.Windows.Forms.Label lblMan5;
+        private System.Windows.Forms.Label lblMan6;
+        private System.Windows.Forms.Label lblMan7;
+        private System.Windows.Forms.Label lblMan8;
+        private System.Windows.Forms.Label lblMan9;
+        private System.Windows.Forms.Label lblMan10;
     }
 }

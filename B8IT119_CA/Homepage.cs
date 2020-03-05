@@ -56,8 +56,11 @@ namespace B8IT119_CA
             studentNoLengthChecker = txtStudentNo.Text.Length;
 
             var p = ConfigurationManager.AppSettings["phone"];
+            var s = ConfigurationManager.AppSettings["stuNo"];
+
 
             Regex phone = new Regex(p);
+            Regex studentNumber = new Regex(s);
                 
 
             bool valid = txtFirstName.Text.Length > 0;
@@ -70,6 +73,8 @@ namespace B8IT119_CA
             valid &= ButtonChecked();
             valid &= cmbCourse.SelectedIndex > -1;
             valid &= studentNoLengthChecker == 8;
+            Match stunoMatch = studentNumber.Match(txtStudentNo.Text);
+            valid &= stunoMatch.Success;
             valid &= int.TryParse(txtStudentNo.Text, out studentId);
 
             return valid;
@@ -542,6 +547,8 @@ namespace B8IT119_CA
             dgChangeLog.Show();
             mainMenu.Show();
         }
+
+       
     }
 }
 
